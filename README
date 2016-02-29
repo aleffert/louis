@@ -1,0 +1,40 @@
+# Louis
+Automated accessibility testing for iOS.
+
+## Installation
+
+### Fetch Using Cocoapods
+
+Add the following to your ``Podfile``:
+```ruby
+pod 'Louis', '~> 1.0'
+```
+
+### Fetch Using Carthage
+
+Add the following to your ``Cartfile``:
+```
+github "aleffert/Louis"
+```
+
+
+### Configuring Louis in your project
+
+Add the following to the ``application(didFinishLaunchingWithOptions:)``
+method of your app delegate:
+
+```
+Louis.louis.timedCheckEnabled = true
+```
+
+
+## Hacking
+
+### Adding a new report
+
+1. Create a new struct that implements the ``Report`` protocol.
+2. Add ``YourStruct.report`` to ``Report.reporters``.
+
+## License
+
+Louis is available under the MIT license. See the LICENSE file for more info.
