@@ -20,6 +20,9 @@
 		77831A251C85F7EE0013C18A /* LUIButtonMissingLabelReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A231C85F7EE0013C18A /* LUIButtonMissingLabelReport.m */; };
 		77831A281C85FD450013C18A /* LUIBadLabelFormatReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A261C85FD450013C18A /* LUIBadLabelFormatReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77831A291C85FD450013C18A /* LUIBadLabelFormatReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A271C85FD450013C18A /* LUIBadLabelFormatReport.m */; };
+		77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A2A1C8602480013C18A /* LUIInsufficientContrastReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77831A2D1C8602480013C18A /* LUIInsufficientContrastReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A2B1C8602480013C18A /* LUIInsufficientContrastReport.m */; };
+		77831A321C860E4D0013C18A /* LUIInsufficientContrastReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77831A301C860DD20013C18A /* LUIInsufficientContrastReportTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		77831A231C85F7EE0013C18A /* LUIButtonMissingLabelReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIButtonMissingLabelReport.m; path = Sources/LUIButtonMissingLabelReport.m; sourceTree = "<group>"; };
 		77831A261C85FD450013C18A /* LUIBadLabelFormatReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIBadLabelFormatReport.h; path = Sources/LUIBadLabelFormatReport.h; sourceTree = "<group>"; };
 		77831A271C85FD450013C18A /* LUIBadLabelFormatReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIBadLabelFormatReport.m; path = Sources/LUIBadLabelFormatReport.m; sourceTree = "<group>"; };
+		77831A2A1C8602480013C18A /* LUIInsufficientContrastReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIInsufficientContrastReport.h; path = Sources/LUIInsufficientContrastReport.h; sourceTree = "<group>"; };
+		77831A2B1C8602480013C18A /* LUIInsufficientContrastReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIInsufficientContrastReport.m; path = Sources/LUIInsufficientContrastReport.m; sourceTree = "<group>"; };
+		77831A301C860DD20013C18A /* LUIInsufficientContrastReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIInsufficientContrastReportTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,19 +109,11 @@
 			children = (
 				77831A1A1C85EACB0013C18A /* LUIReport.h */,
 				77831A1B1C85EACB0013C18A /* LUIReport.m */,
-				771F6B411C84D5B5006E4A1C /* Reporters */,
-				771F6B401C84D5B0006E4A1C /* Harness */,
-			);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		771F6B401C84D5B0006E4A1C /* Harness */ = {
-			isa = PBXGroup;
-			children = (
 				77831A1E1C85EB970013C18A /* LUILouis.h */,
 				77831A1F1C85EB970013C18A /* LUILouis.m */,
+				771F6B411C84D5B5006E4A1C /* Reporters */,
 			);
-			name = Harness;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		771F6B411C84D5B5006E4A1C /* Reporters */ = {
@@ -125,6 +123,8 @@
 				77831A271C85FD450013C18A /* LUIBadLabelFormatReport.m */,
 				77831A221C85F7EE0013C18A /* LUIButtonMissingLabelReport.h */,
 				77831A231C85F7EE0013C18A /* LUIButtonMissingLabelReport.m */,
+				77831A2A1C8602480013C18A /* LUIInsufficientContrastReport.h */,
+				77831A2B1C8602480013C18A /* LUIInsufficientContrastReport.m */,
 			);
 			name = Reporters;
 			sourceTree = "<group>";
@@ -135,6 +135,7 @@
 				771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */,
 				771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */,
 				771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */,
+				77831A301C860DD20013C18A /* LUIInsufficientContrastReportTests.swift */,
 				771F6B561C84D887006E4A1C /* Supporting Files */,
 			);
 			name = Tests;
@@ -156,6 +157,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */,
 				77831A201C85EB970013C18A /* LUILouis.h in Headers */,
 				77831A281C85FD450013C18A /* LUIBadLabelFormatReport.h in Headers */,
 				77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */,
@@ -265,6 +267,7 @@
 				77831A291C85FD450013C18A /* LUIBadLabelFormatReport.m in Sources */,
 				77831A251C85F7EE0013C18A /* LUIButtonMissingLabelReport.m in Sources */,
 				77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */,
+				77831A2D1C8602480013C18A /* LUIInsufficientContrastReport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				771F6B5E1C84F8E4006E4A1C /* LUIReportTests.swift in Sources */,
+				77831A321C860E4D0013C18A /* LUIInsufficientContrastReportTests.swift in Sources */,
 				771F6B551C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift in Sources */,
 				771F6B5A1C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift in Sources */,
 			);

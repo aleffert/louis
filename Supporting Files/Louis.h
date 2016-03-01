@@ -22,3 +22,4 @@ FOUNDATION_EXPORT const unsigned char LouisVersionString[];
 
 #import <Louis/LUIBadLabelFormatReport.h>
 #import <Louis/LUIButtonMissingLabelReport.h>
+#import <Louis/LUIInsufficientContrastReport.h>

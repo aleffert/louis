@@ -1,5 +1,5 @@
 //
-//  LUIBadLabelFormatReport.h
+//  LUIInsufficientContrastReport.h
 //  Louis
 //
 //  Created by Akiva Leffert on 3/1/16.
@@ -12,9 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LUIBadLabelFormatReport : NSObject <LUIReport>
+@interface LUIInsufficientContrastReport : NSObject <LUIReport>
 
-@property (readonly, copy, nonatomic) NSString* label;
+@property (readonly, strong, nonatomic) UIView* backgroundView;
 
 @end
 

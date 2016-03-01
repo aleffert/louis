@@ -8,7 +8,9 @@
 
 #import "LUILouis.h"
 
+#import "LUIBadLabelFormatReport.h"
 #import "LUIButtonMissingLabelReport.h"
+#import "LUIInsufficientContrastReport.h"
 #import "LUIReport.h"
 
 #import <objc/runtime.h>
@@ -22,12 +24,13 @@
 
 void LUIDefaultLogger(NSArray<id<LUIReport>>* reports) {
     for(id<LUIReport> report in reports) {
-        NSLog(@"Accessibility Error: %@", report.message);
+        NSLog(@"Accessibility Error [%@]: %@", [report class], report.message);
     }
 }
 
 void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
-    NSCAssert(reports.count > 0, @"Accessibility Error");
+    LUIDefaultLogger(reports);
+    NSCAssert(reports.count == 0, @"If any reports are incorrect, you can use -[UIView lui_ignoredClasses] on your failing view to hide them.");
 }
 
 @implementation LUILouis
@@ -43,7 +46,9 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
 
 + (NSArray<Class>*)reporters {
     return @[
-             [LUIButtonMissingLabelReport class]
+             [LUIBadLabelFormatReport class],
+             [LUIButtonMissingLabelReport class],
+             [LUIInsufficientContrastReport class],
              ];
 }
 
@@ -61,8 +66,8 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
     [self enableTimer];
 }
 
-- (void)setTimedCheckEnabled:(BOOL)enabled {
-    _timedCheckInterval = enabled;
+- (void)setTimedCheckEnabled:(BOOL)timedCheckEnabled {
+    _timedCheckEnabled = timedCheckEnabled;
     if(self.timedCheckEnabled && self.timer == nil) {
         [self enableTimer];
     }
@@ -77,7 +82,7 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
 }
 
 - (void)enableTimer {
-    self.timer = [NSTimer timerWithTimeInterval:self.timedCheckInterval target:self selector:@selector(checkTimerFired:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.timedCheckInterval target:self selector:@selector(checkTimerFired:) userInfo:nil repeats:YES];
 }
 
 - (void)reportView:(UIView*)view {
@@ -88,7 +93,7 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
 }
 
 - (void)checkTimerFired:(NSTimer*)timer {
-    [self reportView:[[UIApplication sharedApplication].delegate window]];
+    [self reportView:[UIApplication sharedApplication].keyWindow];
 }
 
 @end

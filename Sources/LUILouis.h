@@ -51,6 +51,7 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports);
 /// @returns The accessibility reports for the receiver
 - (NSArray<id<LUIReport>>*)lui_accessibilityReports;
 
+/// Setting this will allow you to ignore specific reports. Just add @p SomeReporterClass.identifer.
 @property (copy, nonatomic) NSArray<NSString*>* lui_ignoredClasses;
 
 @end
