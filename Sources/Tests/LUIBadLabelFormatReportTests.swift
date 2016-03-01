@@ -15,7 +15,8 @@ class BadLabelFormatReportTests: XCTestCase {
     func testIgnoresWhenNoLabel() {
         let label = UILabel()
         label.text = "some_string"
-        XCTAssertEqual(LUIBadLabelFormatReport.reports(label).count, 0)
+
+        LUIAssertAccessible(label)
     }
 
     func testBadName() {

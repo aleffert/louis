@@ -12,6 +12,7 @@
 		771F6B551C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */; };
 		771F6B5A1C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */; };
 		771F6B5E1C84F8E4006E4A1C /* LUIReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */; };
+		773C36C21C8654C100060633 /* XCTestAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C36C11C8654C100060633 /* XCTestAdditions.swift */; };
 		77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1A1C85EACB0013C18A /* LUIReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A1B1C85EACB0013C18A /* LUIReport.m */; };
 		77831A201C85EB970013C18A /* LUILouis.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1E1C85EB970013C18A /* LUILouis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +45,7 @@
 		771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIButtonMissingLabelReportTests.swift; sourceTree = "<group>"; };
 		771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIBadLabelFormatReportTests.swift; sourceTree = "<group>"; };
 		771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIReportTests.swift; sourceTree = "<group>"; };
+		773C36C11C8654C100060633 /* XCTestAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XCTestAdditions.swift; path = Sources/XCTest/XCTestAdditions.swift; sourceTree = "<group>"; };
 		77831A1A1C85EACB0013C18A /* LUIReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReport.h; path = Sources/LUIReport.h; sourceTree = "<group>"; };
 		77831A1B1C85EACB0013C18A /* LUIReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIReport.m; path = Sources/LUIReport.m; sourceTree = "<group>"; };
 		77831A1E1C85EB970013C18A /* LUILouis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUILouis.h; path = Sources/LUILouis.h; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		771F6B3F1C84D5A8006E4A1C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				773C36C11C8654C100060633 /* XCTestAdditions.swift */,
 				77831A1A1C85EACB0013C18A /* LUIReport.h */,
 				77831A1B1C85EACB0013C18A /* LUIReport.m */,
 				77831A1E1C85EB970013C18A /* LUILouis.h */,
@@ -277,6 +280,7 @@
 			files = (
 				771F6B5E1C84F8E4006E4A1C /* LUIReportTests.swift in Sources */,
 				77831A321C860E4D0013C18A /* LUIInsufficientContrastReportTests.swift in Sources */,
+				773C36C21C8654C100060633 /* XCTestAdditions.swift in Sources */,
 				771F6B551C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift in Sources */,
 				771F6B5A1C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift in Sources */,
 			);

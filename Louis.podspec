@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Louis"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Automated Accessibility Testing for iOS."
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,17 @@ Automated Accessibility Testing for iOS. Run automatically while your app is run
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Sources/*.{h,m}'
+  s.default_subspec = 'Lib'
+
+  s.subspec 'Lib' do |sp|
+      sp.source_files = 'Sources/*.{h,m}'
+  end
+
+  s.subspec 'XCTest' do |sp|
+    sp.source_files = 'Sources/XCTest/*.*'
+    sp.frameworks = 'XCTest'
+    sp.dependency 'Louis/Lib', '~> 1.0'
+  end
 
   # s.public_header_files = 'Sources/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

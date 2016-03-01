@@ -56,6 +56,4 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports);
 
 @end
 
-
-
 NS_ASSUME_NONNULL_END
