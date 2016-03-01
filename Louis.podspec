@@ -30,9 +30,9 @@ Automated Accessibility Testing for iOS. Run automatically while your app is run
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Sources/*.m'
+  s.source_files = 'Sources/*.{h,m}'
 
-  s.public_header_files = 'Sources/*.h'
+  # s.public_header_files = 'Sources/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

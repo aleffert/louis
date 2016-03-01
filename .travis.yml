@@ -21,5 +21,5 @@ script:
     - echo "Using device ${DEVICE_ID}"
     - xargs open -a "simulator" --args -CurrentDeviceUDID $DEVICE_ID
     - set -o pipefail && xcodebuild test -project Louis.xcodeproj -scheme Louis -sdk iphonesimulator -destination "id=${DEVICE_ID}" ONLY_ACTIVE_ARCH=NO | xcpretty
-    - pod lib lint --use-libraries
+    - pod lib lint
     - bash <(curl -s https://codecov.io/bash)
