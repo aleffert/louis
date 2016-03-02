@@ -33,25 +33,22 @@ assert or doing something else entirely by setting the ``reportAction``
 property on the shared ``LUILouis`` instance. For example, to have it assert
 if there's a problem you can do:
 ```swift
-LUILouis.shared.reportAction = { LUIAssertionLogger($0) }
+    LUILouis.shared.reportAction = { LUIAssertionLogger($0) }
 ```
 
-You can also use Louis as part of your XCTest cases. Just add the subspec for
-XTest:
-```ruby
-pod 'Louis/XCTest', '~> 1.0'
+You can also use Louis as part of your XCTest cases. Simply assert that your
+view has no issues.
+```swift
+    XCTAssertEqual(view.lui_accessibilityReports.count, 0)
 ```
-
-That adds a function ``XCTAssertAccessible`` that verifies that Louis can find no
-problems with the view hierarchy passed to it.
 
 
 ## Hacking
 
 ### Adding a new report
 
-1. Create a new struct that implements the ``Report`` protocol.
-2. Add ``YourStruct.report`` to ``Report.reporters``.
+1. Create a new class that implements the ``LUIReport`` protocol.
+2. Add ``[YourClass class]`` to ``+[LUIReport reporters]``.
 
 ## License
 

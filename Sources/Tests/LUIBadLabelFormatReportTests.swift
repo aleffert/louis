@@ -16,7 +16,7 @@ class BadLabelFormatReportTests: XCTestCase {
         let label = UILabel()
         label.text = "some_string"
 
-        LUIAssertAccessible(label)
+        XCTAssertEqual(label.lui_accessibilityReports().count, 0)
     }
 
     func testBadName() {

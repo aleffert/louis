@@ -15,7 +15,7 @@ class ButtonMissingLabelReportTests: XCTestCase {
     func testNormalButtonNoReports() {
         let button = UIButton()
         button.setTitle("Some Title", forState: .Normal)
-        LUIAssertAccessible(button)
+        XCTAssertEqual(button.lui_accessibilityReports().count, 0)
     }
 
     func testMissingTitleReports() {
@@ -51,7 +51,7 @@ class ButtonMissingLabelReportTests: XCTestCase {
     func testHasLabelNoReports() {
         let button = UIButton()
         button.accessibilityLabel = "Some title"
-        LUIAssertAccessible(button)
+        XCTAssertEqual(button.lui_accessibilityReports().count, 0)
     }
 
 }
