@@ -27,16 +27,17 @@ Automated Accessibility Testing for iOS. Run automatically while your app is run
   s.source           = { :git => "https://github.com/aleffert/Louis.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/aleffert'
 
-  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.default_subspec = 'Lib'
 
   s.subspec 'Lib' do |sp|
+      sp.platform     = :ios, '8.0'
       sp.source_files = 'Sources/*.{h,m}'
   end
 
   s.subspec 'XCTest' do |sp|
+    sp.platform     = :ios, '8.0'
     sp.source_files = 'Sources/XCTest/*.*'
     sp.frameworks = 'XCTest'
     sp.dependency 'Louis/Lib', '~> 1.0'

@@ -29,9 +29,9 @@ LUILouis.shared.timedCheckEnabled = true
 
 This will enable a check that runs every three seconds looking for violations.
 The default is to log errors it finds to the console. You can also have it
-assert or doing something else entirely by setting ``reportAction`` property
-on the shared ``LUILouis`` instance. For example, to have it assert if there's
-a problem you can do:
+assert or doing something else entirely by setting the ``reportAction``
+property on the shared ``LUILouis`` instance. For example, to have it assert
+if there's a problem you can do:
 ```swift
 LUILouis.shared.reportAction = { LUIAssertionLogger($0) }
 ```
@@ -42,7 +42,7 @@ XTest:
 pod 'Louis/XCTest', '~> 1.0'
 ```
 
-That adds a function ``XCTestAccessible`` that verifies that Louis can find no
+That adds a function ``XCTAssertAccessible`` that verifies that Louis can find no
 problems with the view hierarchy passed to it.
 
 
