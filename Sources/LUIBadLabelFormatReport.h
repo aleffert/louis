@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Louis/LUIReport.h>
+#import "LUIReport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
