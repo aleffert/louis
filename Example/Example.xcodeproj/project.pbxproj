@@ -284,6 +284,7 @@
 				7772208C1C861E1500C7BA23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

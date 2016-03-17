@@ -8,6 +8,8 @@
 
 #import "LUIButtonMissingLabelReport.h"
 
+#import "UIView+LUIVisibility.h"
+
 NSString* LUIStringForControlState(UIControlState state) {
     switch (state) {
         case UIControlStateNormal: return @"normal";
@@ -56,7 +58,7 @@ NSString* LUIStringForControlState(UIControlState state) {
                 [invalidStates addObject:LUIStringForControlState(state)];
             }
         }
-        if(invalidStates.count > 0) {
+        if(invalidStates.count > 0 && !view.lui_isInvisibleToAccessibility) {
             return @[[[LUIButtonMissingLabelReport alloc] initWithButton:button invalidStates:invalidStates]];
         }
     }

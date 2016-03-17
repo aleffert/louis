@@ -12,6 +12,8 @@
 		771F6B551C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */; };
 		771F6B5A1C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */; };
 		771F6B5E1C84F8E4006E4A1C /* LUIReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */; };
+		7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */; };
+		775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */; };
 		77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1A1C85EACB0013C18A /* LUIReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A1B1C85EACB0013C18A /* LUIReport.m */; };
 		77831A201C85EB970013C18A /* LUILouis.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1E1C85EB970013C18A /* LUILouis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +46,8 @@
 		771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIButtonMissingLabelReportTests.swift; sourceTree = "<group>"; };
 		771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIBadLabelFormatReportTests.swift; sourceTree = "<group>"; };
 		771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIReportTests.swift; sourceTree = "<group>"; };
+		7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+LUIVisibility.h"; path = "Sources/UIView+LUIVisibility.h"; sourceTree = "<group>"; };
+		7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+LUIVisibility.m"; path = "Sources/UIView+LUIVisibility.m"; sourceTree = "<group>"; };
 		77831A1A1C85EACB0013C18A /* LUIReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReport.h; path = Sources/LUIReport.h; sourceTree = "<group>"; };
 		77831A1B1C85EACB0013C18A /* LUIReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIReport.m; path = Sources/LUIReport.m; sourceTree = "<group>"; };
 		77831A1E1C85EB970013C18A /* LUILouis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUILouis.h; path = Sources/LUILouis.h; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				77831A1B1C85EACB0013C18A /* LUIReport.m */,
 				77831A1E1C85EB970013C18A /* LUILouis.h */,
 				77831A1F1C85EB970013C18A /* LUILouis.m */,
+				7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */,
+				7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */,
 				771F6B411C84D5B5006E4A1C /* Reporters */,
 			);
 			name = Source;
@@ -163,6 +169,7 @@
 				77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */,
 				771F6B3E1C84D59B006E4A1C /* Louis.h in Headers */,
 				77831A241C85F7EE0013C18A /* LUIButtonMissingLabelReport.h in Headers */,
+				7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +275,7 @@
 				77831A251C85F7EE0013C18A /* LUIButtonMissingLabelReport.m in Sources */,
 				77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */,
 				77831A2D1C8602480013C18A /* LUIInsufficientContrastReport.m in Sources */,
+				775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

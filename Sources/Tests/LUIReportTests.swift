@@ -13,7 +13,8 @@ import Louis
 class ReportTests: XCTestCase {
 
     func testReports() {
-        let button = UIButton()
+        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        button.accessibilityTraits = UIAccessibilityTraitButton
         let reports = button.lui_accessibilityReports()
         XCTAssertEqual(reports.count, 1)
     }
@@ -27,7 +28,8 @@ class ReportTests: XCTestCase {
 
     func testRecursive() {
         let view = UIView()
-        let button = UIButton()
+        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        button.accessibilityTraits = UIAccessibilityTraitButton
         view.addSubview(button)
         let reports = button.lui_accessibilityReports()
         XCTAssertEqual(reports.count, 1)
@@ -35,7 +37,8 @@ class ReportTests: XCTestCase {
 
     func testIgnoringNotRecursive() {
         let view = UIView()
-        let button = UIButton()
+        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        button.accessibilityTraits = UIAccessibilityTraitButton
         view.addSubview(button)
         let reports = button.lui_accessibilityReports()
         view.lui_ignoredClasses = [LUIButtonMissingLabelReport.identifier()]

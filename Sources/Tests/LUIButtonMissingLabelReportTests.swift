@@ -19,7 +19,8 @@ class ButtonMissingLabelReportTests: XCTestCase {
     }
 
     func testMissingTitleReports() {
-        let button = UIButton()
+        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        button.accessibilityTraits = UIAccessibilityTraitButton
         let reports = LUIButtonMissingLabelReport.reports(button)
         XCTAssertEqual(reports.count, 1)
         let buttonReports = reports.flatMap { $0 as? LUIButtonMissingLabelReport }
@@ -32,7 +33,8 @@ class ButtonMissingLabelReportTests: XCTestCase {
     func testMissingTitleReportsSubStates() {
         let states = [UIControlState.Highlighted, .Selected, .Disabled]
         for state in states {
-            let button = UIButton()
+            let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+            button.accessibilityTraits = UIAccessibilityTraitButton;
             button.setTitle("Some title", forState: state)
             let reports = LUIButtonMissingLabelReport.reports(button)
             XCTAssertEqual(reports.count, 1)
@@ -52,6 +54,21 @@ class ButtonMissingLabelReportTests: XCTestCase {
         let button = UIButton()
         button.accessibilityLabel = "Some title"
         XCTAssertEqual(button.lui_accessibilityReports().count, 0)
+    }
+
+    func testIgnoreInvisible() {
+        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        button.accessibilityTraits = UIAccessibilityTraitButton
+        XCTAssertEqual(button.lui_accessibilityReports().count, 1)
+        button.hidden = true
+        XCTAssertEqual(button.lui_accessibilityReports().count, 0)
+        button.hidden = false
+        button.alpha = 0
+        XCTAssertEqual(button.lui_accessibilityReports().count, 0)
+        button.alpha = 1
+        button.bounds = CGRectMake(0, 0, 100, 0)
+        XCTAssertEqual(button.lui_accessibilityReports().count, 0)
+        button.bounds = CGRectMake(0, 0, 0, 100)
     }
 
 }

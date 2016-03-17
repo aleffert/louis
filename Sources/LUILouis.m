@@ -131,5 +131,6 @@ static NSString* const LUIIgnoredReportClassesKey = @"LUIIgnoredReportClassesKey
     return objc_getAssociatedObject(self, &LUIIgnoredReportClassesKey) ?: @[];
 }
 
+
 @end
 
