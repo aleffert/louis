@@ -15,6 +15,8 @@
 
 #import <objc/runtime.h>
 
+static NSTimeInterval LUIDefaultTimedCheckInterval = 3;
+
 @interface LUILouis ()
 
 @property NSTimer* timer;
@@ -55,6 +57,7 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
 - (id)init {
     self = [super init];
     if(self != nil) {
+        self.timedCheckInterval = LUIDefaultTimedCheckInterval;
         self.reportAction = ^(NSArray<id<LUIReport>>* reports) {LUIDefaultLogger(reports); };
     }
     return self;
