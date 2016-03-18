@@ -69,4 +69,32 @@ class LUIInsufficientContrastReportTests: XCTestCase {
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(imageView).count, 1)
     }
+
+    func testBadButtonBackground() {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 2, height: 2), true, 0)
+        UIColor.whiteColor().setFill()
+        UIRectFill(CGRect(x: 0, y: 0, width: 2, height: 2))
+        let image = UIGraphicsGetImageFromCurrentImageContext().imageWithRenderingMode(.AlwaysTemplate)
+        UIGraphicsEndImageContext()
+
+        let button = UIButton(type: .System)
+        button.setBackgroundImage(image, forState: .Normal)
+        button.setTitleColor(UIColor(white: 0.96, alpha: 1), forState: .Normal)
+
+        XCTAssertEqual(LUIInsufficientContrastReport.reports(button.titleLabel!).count, 1)
+    }
+
+    func testAcceptableButtonBackground() {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 2, height: 2), true, 0)
+        UIColor.whiteColor().setFill()
+        UIRectFill(CGRect(x: 0, y: 0, width: 2, height: 2))
+        let image = UIGraphicsGetImageFromCurrentImageContext().imageWithRenderingMode(.AlwaysTemplate)
+        UIGraphicsEndImageContext()
+
+        let button = UIButton(type: .System)
+        button.setBackgroundImage(image, forState: .Normal)
+        button.setTitleColor(UIColor(white: 0.96, alpha: 1), forState: .Normal)
+
+        XCTAssertEqual(LUIInsufficientContrastReport.reports(button).count, 0)
+    }
 }

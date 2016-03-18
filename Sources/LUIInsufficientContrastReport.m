@@ -17,20 +17,63 @@ static CGFloat LUIMinimumContrast = .2;
 
 @end
 
+typedef struct {
+    CGFloat min;
+    CGFloat max;
+} LuminanceRange;
+
+typedef struct
+{
+    Byte red;
+    Byte green;
+    Byte blue;
+    Byte alpha;
+
+} RGBAPixel;
+
+CGFloat LUILuminanceForPixel(RGBAPixel pixel) {
+    return (pixel.red * .2126 + pixel.green * 0.7152 + pixel.blue * 0.0722) / 255;
+}
 
 CGFloat LUILuminanceForColor(UIColor* color) {
     CGFloat r, g, b;
     [color getRed:&r green:&g blue:&b alpha:NULL];
-    return r * .2126 + g * 0.7152 + b * 0.0722;
+    RGBAPixel pixel = {.red = (Byte)(r * 255), .green = (Byte)(g * 255), .blue = (Byte)(b * 255), .alpha = 1};
+    return LUILuminanceForPixel(pixel);
 }
 
-BOOL LUIColorsLackContrast(UIColor* foreground, UIColor* background) {
-    if (foreground == nil || background == nil) {
-        return NO;
-    }
-    CGFloat foregroundLuminance = LUILuminanceForColor(foreground);
-    CGFloat backgroundLuminance = LUILuminanceForColor(background);
+LuminanceRange LUILuminanceForImage(UIImage* image) {
+    CGImageRef imageRep = image.CGImage;
+    NSInteger width = CGImageGetWidth(imageRep);
+    NSInteger height = CGImageGetHeight(imageRep);
 
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceRGB();
+    CGContextRef bmContext = CGBitmapContextCreate(NULL, width, height, 8, 4 * width, cs, kCGImageAlphaNoneSkipLast);
+    CGContextDrawImage(bmContext, (CGRect){.origin.x = 0.0f, .origin.y = 0.0f, .size.width = width, .size.height = height}, image.CGImage);
+    CGColorSpaceRelease(cs);
+
+    CGFloat min = 1;
+    CGFloat max = 0;
+    
+    const RGBAPixel* pixels = (const RGBAPixel*)CGBitmapContextGetData(bmContext);
+    for (NSUInteger y = 0; y < height; y++)
+    {
+        for (NSUInteger x = 0; x < width; x++)
+        {
+            const NSUInteger index = x + y * width;
+            RGBAPixel pixel = pixels[index];
+
+            min = MIN(LUILuminanceForPixel(pixel), min);
+            max = MAX(LUILuminanceForPixel(pixel), max);
+        }
+    }
+    CGContextRelease(bmContext);
+
+    LuminanceRange range = {.min = min, .max = max};
+    return range;
+}
+
+BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLuminance) {
     return fabs(foregroundLuminance - backgroundLuminance) < LUIMinimumContrast;
 }
 
@@ -57,23 +100,32 @@ BOOL LUIColorsLackContrast(UIColor* foreground, UIColor* background) {
     return @"insufficient-contrast";
 }
 
-+ (NSSet<UIColor*>*)foregroundColorsForView:(UIView*)view {
++ (NSArray<NSNumber*>*)foregroundLuminanceForView:(UIView*)view {
     if([view isKindOfClass:[UILabel class]]) {
-        NSMutableSet* result = [[NSMutableSet alloc] init];
         UILabel* label = (UILabel*)view;
+        if([label.superview isKindOfClass:[UIButton class]]) {
+            // May be button's titleLabel. titleColor isn't always the current color, so use that
+            UIButton* containingButton = (UIButton*)label.superview;
+            UIColor* titleColor = [containingButton titleColorForState:UIControlStateNormal];
+            if(containingButton.titleLabel == view && titleColor && !label.attributedText) {
+                return @[@(LUILuminanceForColor(titleColor))];
+            }
+        }
+
+        NSMutableSet* result = [[NSMutableSet alloc] init];
         for(NSUInteger i = 0; i < label.text.length; i++) {
             UIColor* color = [label.attributedText attribute:NSForegroundColorAttributeName atIndex:i effectiveRange:NULL] ?: label.textColor ?: label.tintColor ?: [UIColor blackColor]; // black is the default
-            [result addObject:color];
+            [result addObject:@(LUILuminanceForColor(color))];
         }
-        return result;
+        return result.allObjects;
     }
-    if([view isKindOfClass:[UIImageView class]]) {
+    else if([view isKindOfClass:[UIImageView class]]) {
         UIImageView* imageView = (UIImageView*)view;
         if(imageView.image.renderingMode == UIImageRenderingModeAlwaysTemplate && imageView.tintColor != nil) {
-            return [[NSSet alloc] initWithArray:@[imageView.tintColor]];
+            return @[@(LUILuminanceForColor(imageView.tintColor))];
         }
     }
-    return [NSSet set];
+    return @[];
 }
 
 - (id)initWithView:(UIView*)view backgroundView:(UIView*)backgroundView {
@@ -89,20 +141,40 @@ BOOL LUIColorsLackContrast(UIColor* foreground, UIColor* background) {
     return [NSString stringWithFormat: @"View %@ has insufficient contrast with its background view: %@", self.view, self.backgroundView];
 }
 
++ (NSArray<NSNumber*>*)backgroundLuminositiesOfView:(UIView*)view {
+    if([view isKindOfClass:[UIButton class]]) {
+        UIButton* button = (UIButton*)view;
+        UIImage* backgroundImage = [button backgroundImageForState:UIControlStateNormal];
+        if(backgroundImage) {
+            LuminanceRange range = LUILuminanceForImage(backgroundImage);
+            return @[@(range.min), @(range.max)];
+        }
+    }
+
+    UIColor* color = [view.backgroundColor lui_colorIgnoringClear];
+    if(color) {
+        return @[@(LUILuminanceForColor(color))];
+    }
+
+    return @[];
+}
+
 + (NSArray<id<LUIReport>>*)reports:(UIView *)view {
     UIView* nearestBackgroundView = view;
-    UIColor* nearestBackgroundColor = nil;
-    while(nearestBackgroundView != nil && nearestBackgroundColor == nil) {
-        nearestBackgroundColor = nearestBackgroundView.backgroundColor.lui_colorIgnoringClear;
-        if(nearestBackgroundColor == nil) {
+    NSArray<NSNumber*>* nearestBackgroundLuminosities = nil;
+    while(nearestBackgroundView != nil && nearestBackgroundLuminosities.count == 0) {
+        nearestBackgroundLuminosities = [self backgroundLuminositiesOfView:nearestBackgroundView];
+        if(nearestBackgroundLuminosities.count == 0) {
             nearestBackgroundView = nearestBackgroundView.superview;
         }
     }
 
-    NSSet<UIColor*>* foregroundColors = [self foregroundColorsForView:view];
-    for(UIColor* foregroundColor in foregroundColors) {
-        if(LUIColorsLackContrast(foregroundColor, nearestBackgroundColor)) {
-            return @[[[LUIInsufficientContrastReport alloc] initWithView:view backgroundView:nearestBackgroundView]];
+    NSArray<NSNumber*>* foregrounds = [self foregroundLuminanceForView:view];
+    for(NSNumber* foreground in foregrounds) {
+        for(NSNumber* background in nearestBackgroundLuminosities) {
+            if(LUILuminanceLacksContrast(foreground.floatValue, background.floatValue)) {
+                return @[[[LUIInsufficientContrastReport alloc] initWithView:view backgroundView:nearestBackgroundView]];
+            }
         }
     }
     return @[];
