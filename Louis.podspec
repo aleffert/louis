@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Louis"
-  s.version          = "1.0.2"
+  s.version          = "1.0.3"
   s.summary          = "Automated Accessibility Testing for iOS."
 
 # This description is used to generate tags and improve search results.
