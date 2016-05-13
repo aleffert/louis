@@ -1,0 +1,8 @@
+Assertion ideas:
+
+# Label associated with text field
+# Has tap gesture but is not a button
+# Vkews that are accessible but are completely covered.
+
+Add in app reporting as a popup + highlight individual views
+Connect to dials
