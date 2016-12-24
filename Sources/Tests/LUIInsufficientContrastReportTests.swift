@@ -12,8 +12,8 @@ import Louis
 class LUIInsufficientContrastReportTests: XCTestCase {
     func testLabelTextOnSimilarBackground() {
         let label = UILabel()
-        label.textColor = UIColor.blackColor()
-        label.backgroundColor = UIColor.blackColor()
+        label.textColor = UIColor.black
+        label.backgroundColor = UIColor.black
         label.text = "Test"
 
         let reports = LUIInsufficientContrastReport.reports(label)
@@ -22,8 +22,8 @@ class LUIInsufficientContrastReportTests: XCTestCase {
 
     func testDifferentBackgroundNoReport() {
         let label = UILabel()
-        label.textColor = UIColor.whiteColor()
-        label.backgroundColor = UIColor.blackColor()
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.black
         label.text = "Test"
 
         let reports = LUIInsufficientContrastReport.reports(label)
@@ -33,23 +33,23 @@ class LUIInsufficientContrastReportTests: XCTestCase {
     func testDifferentParentBackground() {
         let container = UIView()
         let label = UILabel()
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.text = "Test"
-        container.backgroundColor = UIColor.blackColor()
+        container.backgroundColor = UIColor.black
         container.addSubview(label)
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(label).count, 0)
 
         // Now swap and make sure we get the same result
-        label.textColor = UIColor.blackColor()
-        container.backgroundColor = UIColor.whiteColor()
+        label.textColor = UIColor.black
+        container.backgroundColor = UIColor.white
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(label).count, 0)
     }
 
     func testNoBackground() {
         let label = UILabel()
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.text = "Test"
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(label).count, 0)
@@ -57,11 +57,11 @@ class LUIInsufficientContrastReportTests: XCTestCase {
 
     func testImageTint() {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 2, height: 2), true, 0)
-        let image = UIGraphicsGetImageFromCurrentImageContext().imageWithRenderingMode(.AlwaysTemplate)
+        let image = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysTemplate)
         UIGraphicsEndImageContext()
 
         let imageView = UIImageView(image: image)
-        imageView.tintColor = UIColor.whiteColor()
+        imageView.tintColor = UIColor.white
 
         let container = UIView()
         container.backgroundColor = UIColor(white: 0.96, alpha: 1)
@@ -72,28 +72,28 @@ class LUIInsufficientContrastReportTests: XCTestCase {
 
     func testBadButtonBackground() {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 2, height: 2), true, 0)
-        UIColor.whiteColor().setFill()
+        UIColor.white.setFill()
         UIRectFill(CGRect(x: 0, y: 0, width: 2, height: 2))
-        let image = UIGraphicsGetImageFromCurrentImageContext().imageWithRenderingMode(.AlwaysTemplate)
+        let image = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysTemplate)
         UIGraphicsEndImageContext()
 
-        let button = UIButton(type: .System)
-        button.setBackgroundImage(image, forState: .Normal)
-        button.setTitleColor(UIColor(white: 0.96, alpha: 1), forState: .Normal)
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(image, for: UIControlState())
+        button.setTitleColor(UIColor(white: 0.96, alpha: 1), for: UIControlState())
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(button.titleLabel!).count, 1)
     }
 
     func testAcceptableButtonBackground() {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 2, height: 2), true, 0)
-        UIColor.whiteColor().setFill()
+        UIColor.white.setFill()
         UIRectFill(CGRect(x: 0, y: 0, width: 2, height: 2))
-        let image = UIGraphicsGetImageFromCurrentImageContext().imageWithRenderingMode(.AlwaysTemplate)
+        let image = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysTemplate)
         UIGraphicsEndImageContext()
 
-        let button = UIButton(type: .System)
-        button.setBackgroundImage(image, forState: .Normal)
-        button.setTitleColor(UIColor(white: 0.96, alpha: 1), forState: .Normal)
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(image, for: UIControlState())
+        button.setTitleColor(UIColor(white: 0.96, alpha: 1), for: UIControlState())
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(button).count, 0)
     }

@@ -13,7 +13,7 @@ import Louis
 class ReportTests: XCTestCase {
 
     func testReports() {
-        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         button.accessibilityTraits = UIAccessibilityTraitButton
         let reports = button.lui_accessibilityReports()
         XCTAssertEqual(reports.count, 1)
@@ -28,7 +28,7 @@ class ReportTests: XCTestCase {
 
     func testRecursive() {
         let view = UIView()
-        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         button.accessibilityTraits = UIAccessibilityTraitButton
         view.addSubview(button)
         let reports = button.lui_accessibilityReports()
@@ -37,7 +37,7 @@ class ReportTests: XCTestCase {
 
     func testIgnoringNotRecursive() {
         let view = UIView()
-        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         button.accessibilityTraits = UIAccessibilityTraitButton
         view.addSubview(button)
         let reports = button.lui_accessibilityReports()
