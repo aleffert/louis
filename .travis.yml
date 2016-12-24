@@ -14,7 +14,7 @@ osx_image: xcode8.1
 env:
     matrix:
         - IOS_VERSION=10.1
-        - IOS_VERSION=9.4
+        - IOS_VERSION=9.3
 
 script:
     - export DEVICE_ID=$(instruments -s devices | grep "iPhone 5s (${IOS_VERSION}" | awk -F '[\[]' '{print $2}' | sed 's/\([-0-9A-F]*\).*/\1/')
