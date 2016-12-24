@@ -94,6 +94,30 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
 
 @end
 
+@interface UIView (LUIOrderHelpers)
+// Sibling views that underlap the given view
+- (NSArray<UIView*>*)lui_underlyingSiblings;
+@end
+
+@implementation UIView (LUIOrderHelpers)
+
+- (NSMutableArray<UIView*>*)lui_underlyingSiblings {
+    CGRect frame = self.frame;
+    NSArray<UIView*>* siblings = [[self superview] subviews];
+    NSUInteger currentIndex = [siblings indexOfObject:self];
+    NSMutableArray<UIView*>* result = [NSMutableArray array];
+    for(NSInteger i = 0; i < currentIndex; i++) {
+        UIView* sibling = siblings[i];
+        if(CGRectEqualToRect(CGRectIntersection(sibling.frame, frame), frame)) {
+            [result addObject:sibling];
+        }
+    }
+    
+    return result;
+}
+
+@end
+
 @implementation LUIInsufficientContrastReport
 
 + (NSString*)identifier {
@@ -123,6 +147,10 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
         UIImageView* imageView = (UIImageView*)view;
         if(imageView.image.renderingMode == UIImageRenderingModeAlwaysTemplate && imageView.tintColor != nil) {
             return @[@(LUILuminanceForColor(imageView.tintColor))];
+        }
+        else {
+            LuminanceRange range = LUILuminanceForImage(imageView.image);
+            return @[@(range.min), @(range.max)];
         }
     }
     return @[];
@@ -160,12 +188,30 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
 }
 
 + (NSArray<id<LUIReport>>*)reports:(UIView *)view {
+    NSMutableArray<UIView*>* underlyingSiblings = view.lui_underlyingSiblings.mutableCopy;
+    BOOL exploringSiblings = YES;
+    
     UIView* nearestBackgroundView = view;
     NSArray<NSNumber*>* nearestBackgroundLuminosities = nil;
     while(nearestBackgroundView != nil && nearestBackgroundLuminosities.count == 0) {
         nearestBackgroundLuminosities = [self backgroundLuminositiesOfView:nearestBackgroundView];
         if(nearestBackgroundLuminosities.count == 0) {
-            nearestBackgroundView = nearestBackgroundView.superview;
+            if(exploringSiblings) {
+                // Go through the sibling queue first
+                if(underlyingSiblings.count > 0) {
+                    nearestBackgroundView = [underlyingSiblings lastObject];
+                    [underlyingSiblings removeLastObject];
+                    continue;
+                }
+                else {
+                    // then start traversing through the parents, by resetting ourselves as the next view
+                    exploringSiblings = NO;
+                    nearestBackgroundView = view;
+                }
+            }
+            else {
+                nearestBackgroundView = nearestBackgroundView.superview;
+            }
         }
     }
 

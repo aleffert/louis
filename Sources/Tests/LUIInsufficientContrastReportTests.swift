@@ -10,6 +10,12 @@ import XCTest
 import Louis
 
 class LUIInsufficientContrastReportTests: XCTestCase {
+    
+    private var offWhite: UIColor {
+        return UIColor(white: 0.96, alpha: 1)
+    }
+    
+    
     func testLabelTextOnSimilarBackground() {
         let label = UILabel()
         label.textColor = UIColor.black
@@ -64,7 +70,7 @@ class LUIInsufficientContrastReportTests: XCTestCase {
         imageView.tintColor = UIColor.white
 
         let container = UIView()
-        container.backgroundColor = UIColor(white: 0.96, alpha: 1)
+        container.backgroundColor = offWhite
         container.addSubview(imageView)
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(imageView).count, 1)
@@ -78,10 +84,35 @@ class LUIInsufficientContrastReportTests: XCTestCase {
         UIGraphicsEndImageContext()
 
         let button = UIButton(type: .system)
-        button.setBackgroundImage(image, for: UIControlState())
-        button.setTitleColor(UIColor(white: 0.96, alpha: 1), for: UIControlState())
+        button.setBackgroundImage(image, for: .normal)
+        button.setTitleColor(offWhite, for: .normal)
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(button.titleLabel!).count, 1)
+    }
+    
+    func testContainingLowerSiblingExamined() {
+        // Siblings are lower in the z order so they can count as backgrounds.
+        // But only relevant when the geometry overlaps
+        
+        // Setup
+        let container = UIView()
+        let sibling = UIView()
+        sibling.backgroundColor = UIColor.white
+        let label = UILabel()
+        label.text = "Example"
+        label.textColor = offWhite
+        
+        container.addSubview(sibling)
+        container.addSubview(label)
+        
+        // Ensure lower sibling geometry contains test view
+        sibling.frame = CGRect(x: 0, y:0, width: 100, height: 100)
+        label.frame = CGRect(x: 25, y: 25, width: 50, height: 50)
+        XCTAssertEqual(LUIInsufficientContrastReport.reports(label).count, 1)
+        
+        // Ensure lower sibling does *not* contain test view
+        label.frame = CGRect(x: 125, y: 125, width: 50, height: 50)
+        XCTAssertEqual(LUIInsufficientContrastReport.reports(label).count, 0)
     }
 
     func testAcceptableButtonBackground() {
@@ -92,8 +123,8 @@ class LUIInsufficientContrastReportTests: XCTestCase {
         UIGraphicsEndImageContext()
 
         let button = UIButton(type: .system)
-        button.setBackgroundImage(image, for: UIControlState())
-        button.setTitleColor(UIColor(white: 0.96, alpha: 1), for: UIControlState())
+        button.setBackgroundImage(image, for: .normal)
+        button.setTitleColor(UIColor(white: 0.96, alpha: 1), for: .normal)
 
         XCTAssertEqual(LUIInsufficientContrastReport.reports(button).count, 0)
     }
