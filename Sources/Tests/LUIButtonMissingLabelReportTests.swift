@@ -27,7 +27,7 @@ class ButtonMissingLabelReportTests: XCTestCase {
         XCTAssertEqual(buttonReports.count, 1)
         let report = buttonReports[0]
         XCTAssertTrue(report.invalidStates.contains(LUIStringForControlState(UIControlState())))
-        XCTAssertEqual(report.view, button)
+        XCTAssertTrue(report.views.values.contains(button))
     }
 
     func testMissingTitleReportsSubStates() {
@@ -46,7 +46,7 @@ class ButtonMissingLabelReportTests: XCTestCase {
                 XCTAssertTrue(report.invalidStates.contains(LUIStringForControlState(remainingState)))
             }
             XCTAssertFalse(report.invalidStates.contains(LUIStringForControlState(state)))
-            XCTAssertEqual(report.view, button)
+            XCTAssertTrue(report.views.values.contains(button))
         }
     }
 

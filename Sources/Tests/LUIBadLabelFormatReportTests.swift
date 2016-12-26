@@ -24,8 +24,8 @@ class BadLabelFormatReportTests: XCTestCase {
         label.accessibilityLabel = "some_string"
         let reports = LUIBadLabelFormatReport.reports(label)
         XCTAssertEqual(reports.count, 1)
-        let report = (reports.first as? LUIBadLabelFormatReport)!
-        XCTAssertEqual(report.view, label)
+        let report = reports.first as! LUIBadLabelFormatReport
+        XCTAssertTrue(report.views.values.contains(label))
     }
 
 }
