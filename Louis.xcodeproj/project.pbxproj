@@ -15,7 +15,6 @@
 		7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */; };
 		775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */; };
 		77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1A1C85EACB0013C18A /* LUIReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A1B1C85EACB0013C18A /* LUIReport.m */; };
 		77831A201C85EB970013C18A /* LUILouis.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1E1C85EB970013C18A /* LUILouis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77831A211C85EB970013C18A /* LUILouis.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A1F1C85EB970013C18A /* LUILouis.m */; };
 		77831A241C85F7EE0013C18A /* LUIButtonMissingLabelReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A221C85F7EE0013C18A /* LUIButtonMissingLabelReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +28,11 @@
 		779DA4E81E0EE63D00BBDC8A /* UIImage+LUIConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */; };
 		779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */; };
 		779DA4EC1E0F07B500BBDC8A /* UIColor+LUIConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */; };
+		779DA4EE1E11895100BBDC8A /* LUILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4ED1E11895100BBDC8A /* LUILogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		779DA4F21E118C5900BBDC8A /* LUIConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4F01E118C5900BBDC8A /* LUIConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		779DA4F31E118C5900BBDC8A /* LUIConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4F11E118C5900BBDC8A /* LUIConsoleLogger.m */; };
+		779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */; };
+		779DA4F71E118CC300BBDC8A /* LUIAssertionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +57,6 @@
 		7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+LUIVisibility.h"; path = "Sources/UIView+LUIVisibility.h"; sourceTree = "<group>"; };
 		7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+LUIVisibility.m"; path = "Sources/UIView+LUIVisibility.m"; sourceTree = "<group>"; };
 		77831A1A1C85EACB0013C18A /* LUIReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReport.h; path = Sources/LUIReport.h; sourceTree = "<group>"; };
-		77831A1B1C85EACB0013C18A /* LUIReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIReport.m; path = Sources/LUIReport.m; sourceTree = "<group>"; };
 		77831A1E1C85EB970013C18A /* LUILouis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUILouis.h; path = Sources/LUILouis.h; sourceTree = "<group>"; };
 		77831A1F1C85EB970013C18A /* LUILouis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUILouis.m; path = Sources/LUILouis.m; sourceTree = "<group>"; };
 		77831A221C85F7EE0013C18A /* LUIButtonMissingLabelReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIButtonMissingLabelReport.h; path = Sources/LUIButtonMissingLabelReport.h; sourceTree = "<group>"; };
@@ -67,6 +70,11 @@
 		779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+LUIConvenience.m"; path = "Sources/UIImage+LUIConvenience.m"; sourceTree = "<group>"; };
 		779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+LUIConvenience.h"; path = "Sources/UIColor+LUIConvenience.h"; sourceTree = "<group>"; };
 		779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+LUIConvenience.m"; path = "Sources/UIColor+LUIConvenience.m"; sourceTree = "<group>"; };
+		779DA4ED1E11895100BBDC8A /* LUILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUILogger.h; path = Sources/LUILogger.h; sourceTree = "<group>"; };
+		779DA4F01E118C5900BBDC8A /* LUIConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIConsoleLogger.h; path = Sources/LUIConsoleLogger.h; sourceTree = "<group>"; };
+		779DA4F11E118C5900BBDC8A /* LUIConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIConsoleLogger.m; path = Sources/LUIConsoleLogger.m; sourceTree = "<group>"; };
+		779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIAssertionLogger.h; path = Sources/LUIAssertionLogger.h; sourceTree = "<group>"; };
+		779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIAssertionLogger.m; path = Sources/LUIAssertionLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +127,6 @@
 		771F6B3F1C84D5A8006E4A1C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				77831A1A1C85EACB0013C18A /* LUIReport.h */,
-				77831A1B1C85EACB0013C18A /* LUIReport.m */,
 				77831A1E1C85EB970013C18A /* LUILouis.h */,
 				77831A1F1C85EB970013C18A /* LUILouis.m */,
 				7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */,
@@ -129,6 +135,7 @@
 				779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */,
 				779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */,
 				779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */,
+				779DA4EF1E11895F00BBDC8A /* Loggers */,
 				771F6B411C84D5B5006E4A1C /* Reporters */,
 			);
 			name = Source;
@@ -137,6 +144,7 @@
 		771F6B411C84D5B5006E4A1C /* Reporters */ = {
 			isa = PBXGroup;
 			children = (
+				77831A1A1C85EACB0013C18A /* LUIReport.h */,
 				77831A261C85FD450013C18A /* LUIBadLabelFormatReport.h */,
 				77831A271C85FD450013C18A /* LUIBadLabelFormatReport.m */,
 				77831A221C85F7EE0013C18A /* LUIButtonMissingLabelReport.h */,
@@ -168,6 +176,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		779DA4EF1E11895F00BBDC8A /* Loggers */ = {
+			isa = PBXGroup;
+			children = (
+				779DA4ED1E11895100BBDC8A /* LUILogger.h */,
+				779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */,
+				779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */,
+				779DA4F01E118C5900BBDC8A /* LUIConsoleLogger.h */,
+				779DA4F11E118C5900BBDC8A /* LUIConsoleLogger.m */,
+			);
+			name = Loggers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -175,15 +195,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779DA4F21E118C5900BBDC8A /* LUIConsoleLogger.h in Headers */,
 				77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */,
 				779DA4E71E0EE63D00BBDC8A /* UIImage+LUIConvenience.h in Headers */,
 				779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */,
+				779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */,
 				77831A201C85EB970013C18A /* LUILouis.h in Headers */,
 				77831A281C85FD450013C18A /* LUIBadLabelFormatReport.h in Headers */,
 				77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */,
 				771F6B3E1C84D59B006E4A1C /* Louis.h in Headers */,
 				77831A241C85F7EE0013C18A /* LUIButtonMissingLabelReport.h in Headers */,
 				7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */,
+				779DA4EE1E11895100BBDC8A /* LUILogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +310,11 @@
 			files = (
 				77831A211C85EB970013C18A /* LUILouis.m in Sources */,
 				779DA4E81E0EE63D00BBDC8A /* UIImage+LUIConvenience.m in Sources */,
+				779DA4F31E118C5900BBDC8A /* LUIConsoleLogger.m in Sources */,
 				779DA4EC1E0F07B500BBDC8A /* UIColor+LUIConvenience.m in Sources */,
 				77831A291C85FD450013C18A /* LUIBadLabelFormatReport.m in Sources */,
+				779DA4F71E118CC300BBDC8A /* LUIAssertionLogger.m in Sources */,
 				77831A251C85F7EE0013C18A /* LUIButtonMissingLabelReport.m in Sources */,
-				77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */,
 				77831A2D1C8602480013C18A /* LUIInsufficientContrastReport.m in Sources */,
 				775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */,
 			);
@@ -418,7 +442,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -438,7 +461,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

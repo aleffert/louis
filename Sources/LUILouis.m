@@ -10,7 +10,9 @@
 
 #import "LUIBadLabelFormatReport.h"
 #import "LUIButtonMissingLabelReport.h"
+#import "LUIConsoleLogger.h"
 #import "LUIInsufficientContrastReport.h"
+#import "LUILogger.h"
 #import "LUIReport.h"
 
 #import <objc/runtime.h>
@@ -22,18 +24,6 @@ static NSTimeInterval LUIDefaultTimedCheckInterval = 3;
 @property NSTimer* timer;
 
 @end
-
-
-void LUIDefaultLogger(NSArray<id<LUIReport>>* reports) {
-    for(id<LUIReport> report in reports) {
-        NSLog(@"Accessibility Error [%@]: %@", [report class], report.message);
-    }
-}
-
-void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
-    LUIDefaultLogger(reports);
-    NSCAssert(reports.count == 0, @"If any reports are incorrect, you can use -[UIView setLui_ignoredClasses] on your failing view to hide them.");
-}
 
 @implementation LUILouis
 
@@ -58,7 +48,7 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
     self = [super init];
     if(self != nil) {
         self.timedCheckInterval = LUIDefaultTimedCheckInterval;
-        self.reportAction = ^(NSArray<id<LUIReport>>* reports) {LUIDefaultLogger(reports); };
+        self.loggers = @[[[LUIConsoleLogger alloc] init]];
     }
     return self;
 }
@@ -91,12 +81,26 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
 - (void)reportView:(UIView*)view {
     NSArray<id<LUIReport>>* reports = [view lui_accessibilityReports];
     if(reports.count > 0) {
-        self.reportAction(reports);
+        for(id<LUILogger> logger in self.loggers) {
+            [logger logReports:reports];
+        }
     }
 }
 
 - (void)checkTimerFired:(NSTimer*)timer {
     [self reportView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void)addLogger:(id<LUILogger>)logger {
+    NSMutableArray<id<LUILogger>>* loggers = self.loggers.mutableCopy;
+    [loggers addObject:logger];
+    self.loggers = loggers;
+}
+
+- (void)removeLogger:(id<LUILogger>)logger {
+    NSMutableArray<id<LUILogger>>* loggers = self.loggers.mutableCopy;
+    [loggers removeObject:logger];
+    self.loggers = loggers;
 }
 
 @end

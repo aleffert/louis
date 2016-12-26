@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol LUILogger;
 @protocol LUIReport;
 
 void LUIDefaultLogger(NSArray<id<LUIReport>>* reports);
@@ -24,8 +25,9 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports);
 /// Constructs a new accessibility checker. Note that for convenience you can access Louis through its shared singleton.
 - (id)init;
 
-/// How to report bubble up errors. The default is Louis.defaultLogger
-@property (copy, nonatomic) void (^reportAction)(NSArray<id<LUIReport>>*);
+- (void)addLogger:(id <LUILogger>)logger;
+- (void)removeLogger:(id <LUILogger>)logger;
+@property (copy, nonatomic) NSArray<id<LUILogger>>* loggers;
 
 /// Interval between traversals of the view hierarchy when @p timedCheckEnabled is @p YES. Defaults to 3 seconds.
 @property (assign, nonatomic) NSTimeInterval timedCheckInterval;
