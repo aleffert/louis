@@ -43,9 +43,16 @@ void LUIAssertionLogger(NSArray<id<LUIReport>>* reports);
 @interface UIView (LUIReportExtensions)
 
 /// To explicitly disable a report you can set the @p ignoredReportClasses property of the view.
+/// The list of reporters is read from the current shared instance.
 /// @param recursive Whether to recurse down through the view's subview hierarchy.
 /// @returns The accessibility reports for the receiver.
 - (NSArray<id<LUIReport>>*)lui_accessibilityReportsRecursive:(BOOL)recursive;
+
+/// To explicitly disable a report you can set the @p ignoredReportClasses property of the view.
+/// @param recursive Whether to recurse down through the view's subview hierarchy.
+/// @param reporters A list of all classes to report based on. All classes should implement @p LUIReport. 
+/// @returns The accessibility reports for the receiver.
+- (NSArray<id<LUIReport>>*)lui_accessibilityReportsRecursive:(BOOL)recursive reporters:(NSArray<Class>*)reporters;
 
 /// To explicitly disable a report you can set the @p ignoredReportClasses property of the view. Same as calling @p lui_accessibilityReportsRecursive with @p YES.
 /// @returns The accessibility reports for the receiver

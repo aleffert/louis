@@ -32,7 +32,7 @@ void LUIDefaultLogger(NSArray<id<LUIReport>>* reports) {
 
 void LUIAssertionLogger(NSArray<id<LUIReport>>* reports) {
     LUIDefaultLogger(reports);
-    NSCAssert(reports.count == 0, @"If any reports are incorrect, you can use -[UIView lui_ignoredClasses] on your failing view to hide them.");
+    NSCAssert(reports.count == 0, @"If any reports are incorrect, you can use -[UIView setLui_ignoredClasses] on your failing view to hide them.");
 }
 
 @implementation LUILouis
@@ -106,17 +106,21 @@ static NSString* const LUIIgnoredReportClassesKey = @"LUIIgnoredReportClassesKey
 @implementation UIView (LUIReportExtensions)
 
 - (NSArray<id<LUIReport>>*)lui_accessibilityReportsRecursive:(BOOL)recursive {
-    NSMutableArray<id<LUIReport>>* reports = [[NSMutableArray alloc] init];
+    return [self lui_accessibilityReportsRecursive:recursive reporters:[LUILouis reporters]];
+}
 
-    for(Class reporter in [LUILouis reporters]) {
+- (NSArray<id<LUIReport>>*)lui_accessibilityReportsRecursive:(BOOL)recursive reporters:(NSArray<Class> *)reporters {
+    NSMutableArray<id<LUIReport>>* reports = [[NSMutableArray alloc] init];
+    
+    for(Class reporter in reporters) {
         if(![self.lui_ignoredClasses containsObject: [reporter identifier]]) {
             [reports addObjectsFromArray:[reporter reports:self]];
         }
     }
-
+    
     if(recursive) {
         for(UIView* view in self.subviews) {
-            [reports addObjectsFromArray:[view lui_accessibilityReportsRecursive:YES]];
+            [reports addObjectsFromArray:[view lui_accessibilityReportsRecursive:YES reporters:reporters]];
         }
     }
     return reports;

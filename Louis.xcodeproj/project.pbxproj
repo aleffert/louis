@@ -25,6 +25,10 @@
 		77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A2A1C8602480013C18A /* LUIInsufficientContrastReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77831A2D1C8602480013C18A /* LUIInsufficientContrastReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 77831A2B1C8602480013C18A /* LUIInsufficientContrastReport.m */; };
 		77831A321C860E4D0013C18A /* LUIInsufficientContrastReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77831A301C860DD20013C18A /* LUIInsufficientContrastReportTests.swift */; };
+		779DA4E71E0EE63D00BBDC8A /* UIImage+LUIConvenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4E51E0EE63D00BBDC8A /* UIImage+LUIConvenience.h */; };
+		779DA4E81E0EE63D00BBDC8A /* UIImage+LUIConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */; };
+		779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */; };
+		779DA4EC1E0F07B500BBDC8A /* UIColor+LUIConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		77831A2A1C8602480013C18A /* LUIInsufficientContrastReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIInsufficientContrastReport.h; path = Sources/LUIInsufficientContrastReport.h; sourceTree = "<group>"; };
 		77831A2B1C8602480013C18A /* LUIInsufficientContrastReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIInsufficientContrastReport.m; path = Sources/LUIInsufficientContrastReport.m; sourceTree = "<group>"; };
 		77831A301C860DD20013C18A /* LUIInsufficientContrastReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIInsufficientContrastReportTests.swift; sourceTree = "<group>"; };
+		779DA4E51E0EE63D00BBDC8A /* UIImage+LUIConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+LUIConvenience.h"; path = "Sources/UIImage+LUIConvenience.h"; sourceTree = "<group>"; };
+		779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+LUIConvenience.m"; path = "Sources/UIImage+LUIConvenience.m"; sourceTree = "<group>"; };
+		779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+LUIConvenience.h"; path = "Sources/UIColor+LUIConvenience.h"; sourceTree = "<group>"; };
+		779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+LUIConvenience.m"; path = "Sources/UIColor+LUIConvenience.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,10 @@
 				77831A1F1C85EB970013C18A /* LUILouis.m */,
 				7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */,
 				7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */,
+				779DA4E51E0EE63D00BBDC8A /* UIImage+LUIConvenience.h */,
+				779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */,
+				779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */,
+				779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */,
 				771F6B411C84D5B5006E4A1C /* Reporters */,
 			);
 			name = Source;
@@ -164,6 +176,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */,
+				779DA4E71E0EE63D00BBDC8A /* UIImage+LUIConvenience.h in Headers */,
+				779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */,
 				77831A201C85EB970013C18A /* LUILouis.h in Headers */,
 				77831A281C85FD450013C18A /* LUIBadLabelFormatReport.h in Headers */,
 				77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */,
@@ -219,7 +233,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Akiva Leffert";
 				TargetAttributes = {
 					771F6B261C84D505006E4A1C = {
@@ -272,6 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77831A211C85EB970013C18A /* LUILouis.m in Sources */,
+				779DA4E81E0EE63D00BBDC8A /* UIImage+LUIConvenience.m in Sources */,
+				779DA4EC1E0F07B500BBDC8A /* UIColor+LUIConvenience.m in Sources */,
 				77831A291C85FD450013C18A /* LUIBadLabelFormatReport.m in Sources */,
 				77831A251C85F7EE0013C18A /* LUIButtonMissingLabelReport.m in Sources */,
 				77831A1D1C85EACB0013C18A /* LUIReport.m in Sources */,
@@ -315,8 +331,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -364,8 +382,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -386,6 +406,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -397,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -416,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
