@@ -12,8 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol LUIReport;
 
+/// Protocol for custom loggers.
 @protocol LUILogger <NSObject>
 
+/// Called by the system when it has items to report.
+/// Typically reports are issued on a timer, so if a report is still relevant it will
+/// be reported again.
+/// @param reports List of reports. May be empty to indicate that there are no current issues.
 - (void)logReports:(NSArray<id <LUIReport>>*)reports;
 
 @end
