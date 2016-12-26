@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Louis"
-  s.version          = "1.0.4"
+  s.version          = "1.0.5"
   s.summary          = "Automated Accessibility Testing for iOS."
 
 # This description is used to generate tags and improve search results.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-Automated Accessibility Testing for iOS. Run automatically while your app is running or manually as part of your view tests. Easily control how the results are reported.
+Automated Accessibility Testing for iOS. Run automatically while your app is running or as part of your test suite. Easily control how the results are reported.
                        DESC
 
   s.homepage         = "https://github.com/aleffert/Louis"
@@ -30,7 +30,7 @@ Automated Accessibility Testing for iOS. Run automatically while your app is run
   s.requires_arc = true
 
   s.platform     = :ios, '8.0'
-  s.source_files = 'Sources/*.{h,m}'
+  s.source_files = 'Sources/*.{h,m}', 'Supporting Files/Louis.h'
 
   # s.public_header_files = 'Sources/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

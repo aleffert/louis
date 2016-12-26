@@ -1,5 +1,6 @@
 # Louis
-Automated accessibility testing for iOS. This project is still new. Please contribute!
+Automated accessibility testing for iOS. This project is still new. Please
+contribute! We are looking to add more checks and eliminate false positives.
 
 ## Installation
 
@@ -20,20 +21,29 @@ github "aleffert/Louis"
 
 ### Configuring Louis in your project
 
-Add the following to the ``application(didFinishLaunchingWithOptions:)``
-method of your app delegate:
+Add the following to your app delegate:
 
 ```
-LUILouis.shared.timedCheckEnabled = true
+
+// At the top with your other imports
+import Louis
+
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    ...
+    // And add this line inside application(didFinishLaunchingWithOptions:)
+    LUILouis.shared.timedCheckEnabled = true
+    ...
+}
 ```
 
 This will enable a check that runs every three seconds looking for violations.
 The default is to log errors it finds to the console. You can also have it
-assert or doing something else entirely by setting the ``reportAction``
+assert or doing something else entirely by setting the ``loggers``
 property on the shared ``LUILouis`` instance. For example, to have it assert
 if there's a problem you can do:
 ```swift
-    LUILouis.shared.reportAction = { LUIAssertionLogger($0) }
+    LUILouis.shared.addLogger(LUIAssertionLogger())
 ```
 
 You can also use Louis as part of your XCTest cases. Simply assert that your
