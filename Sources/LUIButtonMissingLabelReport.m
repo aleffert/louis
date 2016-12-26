@@ -65,4 +65,10 @@ NSString* LUIStringForControlState(UIControlState state) {
     return @[];
 }
 
+- (NSDictionary<NSString *,UIView *> *)views {
+    return @{
+             @"Button": self.button
+             };
+}
+
 @end

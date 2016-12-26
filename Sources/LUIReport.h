@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray<id<LUIReport>>*)reports:(UIView*)view;
 + (NSString*)identifier;
+
 @property (readonly, copy, nonatomic) NSString* message;
-@property (readonly, strong, nonatomic) UIView* view;
+@property (readonly, copy, nonatomic) NSDictionary<NSString*, UIView*>* views;
 
 @end
 

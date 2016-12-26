@@ -48,4 +48,10 @@ BOOL LUIIsBadName(NSString* name) {
     }
 }
 
+- (NSDictionary<NSString*, UIView*>*)views {
+    return @{
+             @"Label": self.view
+             };
+}
+
 @end

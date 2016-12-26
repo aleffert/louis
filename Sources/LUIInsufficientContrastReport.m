@@ -276,4 +276,11 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
     return [self traverseTreeForView: view withBackgroundView:view];
 }
 
+- (NSDictionary<NSString *,UIView *> *)views {
+    return @{
+             @"Foreground": self.view,
+             @"Background": self.backgroundView
+             };
+}
+
 @end
