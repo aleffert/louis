@@ -14,9 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol LUILogger;
 @protocol LUIReport;
 
-void LUIDefaultLogger(NSArray<id<LUIReport>>* reports);
-void LUIAssertionLogger(NSArray<id<LUIReport>>* reports);
-
 @interface LUILouis : NSObject
 
 /// Shared singleton for Louis.
