@@ -8,7 +8,7 @@
 
 import XCTest
 
-import Louis
+@testable import Louis
 
 class ReportTests: XCTestCase {
 

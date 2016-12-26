@@ -15,7 +15,11 @@ FOUNDATION_EXPORT double LouisVersionNumber;
 FOUNDATION_EXPORT const unsigned char LouisVersionString[];
 
 #import <Louis/LUILouis.h>
+#import <Louis/LUILogger.h>
 #import <Louis/LUIReport.h>
+
+#import <Louis/LUIAssertionLogger.h>
+#import <Louis/LUIConsoleLogger.h>
 
 #import <Louis/LUIBadLabelFormatReport.h>
 #import <Louis/LUIButtonMissingLabelReport.h>

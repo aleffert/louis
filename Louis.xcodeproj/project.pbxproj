@@ -28,11 +28,11 @@
 		779DA4E81E0EE63D00BBDC8A /* UIImage+LUIConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */; };
 		779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */; };
 		779DA4EC1E0F07B500BBDC8A /* UIColor+LUIConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */; };
-		779DA4EE1E11895100BBDC8A /* LUILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4ED1E11895100BBDC8A /* LUILogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		779DA4F21E118C5900BBDC8A /* LUIConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4F01E118C5900BBDC8A /* LUIConsoleLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		779DA4F31E118C5900BBDC8A /* LUIConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4F11E118C5900BBDC8A /* LUIConsoleLogger.m */; };
-		779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */; };
+		779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		779DA4F71E118CC300BBDC8A /* LUIAssertionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */; };
+		779DA5001E11AE3E00BBDC8A /* LUILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4ED1E11895100BBDC8A /* LUILogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +198,7 @@
 				779DA4F21E118C5900BBDC8A /* LUIConsoleLogger.h in Headers */,
 				77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */,
 				779DA4E71E0EE63D00BBDC8A /* UIImage+LUIConvenience.h in Headers */,
+				779DA5001E11AE3E00BBDC8A /* LUILogger.h in Headers */,
 				779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */,
 				779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */,
 				77831A201C85EB970013C18A /* LUILouis.h in Headers */,
@@ -206,7 +207,6 @@
 				771F6B3E1C84D59B006E4A1C /* Louis.h in Headers */,
 				77831A241C85F7EE0013C18A /* LUIButtonMissingLabelReport.h in Headers */,
 				7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */,
-				779DA4EE1E11895100BBDC8A /* LUILogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
