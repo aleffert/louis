@@ -10,6 +10,7 @@
 
 #import "UIColor+LUIConvenience.h"
 #import "LUIReport.h"
+#import "LUIViewRecord.h"
 
 static const NSUInteger LUISwatchCornerRadius = 3;
 
@@ -118,12 +119,13 @@ typedef NS_ENUM(NSUInteger, LUIReportViewSection) {
 }
 
 - (UITableViewCell*)viewItemCellForTableView:(UITableView*)tableView atIndex:(NSUInteger)index {
-    NSString* key = [[self.report views].allKeys sortedArrayUsingSelector:@selector(compare:)][index];
+    LUIViewRecord* record = self.report.views[index];
+    NSString* key = record.name;
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Description"];
     cell.textLabel.text = key;
     
-    UIView* view = [self.report views][key];
+    UIView* view = record.view;
     UIColor* color = [self.delegate reportViewController:self highlighColorView:view];
     [cell.imageView setImage:[color lui_swatchOfSize:[self swatchSize]]];
     cell.imageView.clipsToBounds = YES;

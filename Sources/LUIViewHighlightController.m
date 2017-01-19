@@ -8,6 +8,8 @@
 
 #import "LUIViewHighlightController.h"
 
+#import "LUIViewRecord.h"
+
 @interface LUIHighlightView: UIView
 @end
 
@@ -89,16 +91,17 @@
     return [[self highlightForView:view] color];
 }
 
-- (void)highlightViews:(NSArray<UIView*>*)views inContainer:(UIView*)container {
+- (void)highlightViews:(NSArray<LUIViewRecord*>*)records inContainer:(UIView*)container {
     NSMutableArray* highlights = [[NSMutableArray alloc] init];
-    for(UIView* view in views) {
-        UIView* highlight = [self highlightForView:view];
+    for(LUIViewRecord* record in records) {
+        UIView* highlight = [self highlightForView:record.view];
         if(highlight == nil) {
-            highlight = [[LUIHighlightView alloc] initWithBaseView:view color:[self dequeueColor]];
+            highlight = [[LUIHighlightView alloc] initWithBaseView:record.view color:[self dequeueColor]];
+            highlight.accessibilityLabel = record.name;
             [highlights addObject:highlight];
         }
         [container addSubview:highlight];
-        CGRect frame = [container convertRect:view.bounds fromView:view];
+        CGRect frame = [container convertRect:record.view.bounds fromView:record.view];
         NSLog(@"frame is %@", [NSValue valueWithCGRect:frame]);
         highlight.frame = frame;
     }

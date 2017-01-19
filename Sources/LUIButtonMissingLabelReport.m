@@ -8,6 +8,8 @@
 
 #import "LUIButtonMissingLabelReport.h"
 
+#import "LUIViewRecord.h"
+
 #import "UIView+LUIVisibility.h"
 
 NSString* LUIStringForControlState(UIControlState state) {
@@ -74,10 +76,10 @@ NSString* LUIStringForControlState(UIControlState state) {
     return @[];
 }
 
-- (NSDictionary<NSString *,UIView *> *)views {
-    return @{
-             @"Button": self.button
-             };
+- (NSArray<LUIViewRecord*>*)views {
+    return @[
+             [[LUIViewRecord alloc] initWithName:@"Button" view: self.button]
+             ];
 }
 
 @end

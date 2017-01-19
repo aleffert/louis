@@ -11,9 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LUIViewRecord;
+
 @interface LUIViewHighlightController: NSObject
 
-- (void)highlightViews:(NSArray<UIView*>*)views inContainer:(UIView*)container;
+- (void)highlightViews:(NSArray<LUIViewRecord*>*)views inContainer:(UIView*)container;
 - (UIColor*)highlightColorForView:(UIView*)view;
 
 @end

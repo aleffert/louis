@@ -82,7 +82,7 @@
     window.alpha = 0;
     window.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     [UIView animateWithDuration:0.3 animations:^{
-        window.alpha = 0.8;
+        window.alpha = 1.0;
     }];
     self.overlayWindow = window;
     [reportController present];

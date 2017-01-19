@@ -8,6 +8,8 @@
 
 #import "LUIBadLabelFormatReport.h"
 
+#import "LUIViewRecord.h"
+
 BOOL LUIIsBadName(NSString* name) {
     return [name containsString:@"_"];
 }
@@ -57,10 +59,10 @@ BOOL LUIIsBadName(NSString* name) {
     }
 }
 
-- (NSDictionary<NSString*, UIView*>*)views {
-    return @{
-             @"Label": self.view
-             };
+- (NSArray<LUIViewRecord*>*)views {
+    return @[
+             [[LUIViewRecord alloc] initWithName:@"Label" view: self.view]
+             ];
 }
 
 @end

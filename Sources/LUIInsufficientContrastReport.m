@@ -8,6 +8,7 @@
 
 #import "LUIInsufficientContrastReport.h"
 
+#import "LUIViewRecord.h"
 #import "UIColor+LUIConvenience.h"
 #import "UIImage+LUIConvenience.h"
 
@@ -283,11 +284,11 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
     return [self traverseTreeForView: view withBackgroundView:view];
 }
 
-- (NSDictionary<NSString *,UIView *> *)views {
-    return @{
-             @"Foreground": self.view,
-             @"Background": self.backgroundView
-             };
+- (NSArray<LUIViewRecord*>*)views {
+    return @[
+             [[LUIViewRecord alloc] initWithName:@"Foreground" view: self.view],
+             [[LUIViewRecord alloc] initWithName:@"Background" view: self.backgroundView]
+             ];
 }
 
 @end

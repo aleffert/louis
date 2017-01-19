@@ -17,6 +17,7 @@
 
 
 static const CGFloat LUIFooterHeight = 220;
+static const CGFloat LUIFooterWidth = 300;
 
 @interface LUIReportContainerViewController () <LUIReportListViewControllerDelegate, LUIReportViewControllerDelegate, UINavigationControllerDelegate>
 
@@ -25,6 +26,9 @@ static const CGFloat LUIFooterHeight = 220;
 @property (strong, nonatomic) LUIViewHighlightController* highlightController;
 @property (strong, nonatomic) UIView* overlayContainer;
 @property (strong, nonatomic) UIWindow* window;
+
+@property (assign, nonatomic) CGFloat transformX;
+@property (assign, nonatomic) CGFloat transformY;
 
 @end
 
@@ -47,32 +51,37 @@ static const CGFloat LUIFooterHeight = 220;
         self.reportListController.navigationItem.rightBarButtonItem = [self doneButton];
         
         [self.navController didMoveToParentViewController:self];
+        
+        [self.navController.navigationBar addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(titleBarDrag:)]];
     }
     return self;
 }
 
 - (void)present {
-    self.navController.view.transform = CGAffineTransformMakeTranslation(0, self.navController.view.bounds.size.height);
+    self.navController.view.transform = CGAffineTransformMakeScale(0.3, 0.3);
     [UIView animateWithDuration:0.3 animations:^{
         self.navController.view.transform = CGAffineTransformIdentity;
     }];
+    self.navController.view.layer.shadowOpacity = 0.4;
+    self.navController.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, LUIFooterWidth, LUIFooterHeight)].CGPath;
+    self.navController.view.layer.shadowOffset = CGSizeMake(0, 3);
 }
 
 
 - (void)done:(id)sender {
     [UIView animateWithDuration:0.3 animations:^{
-        self.navController.view.transform = CGAffineTransformMakeTranslation(0, self.navController.view.bounds.size.height);
+        self.navController.view.transform = CGAffineTransformMakeScale(0.3, 0.3);
         [self.delegate reportContainerWillFinish:self];
     } completion:^(BOOL finished) {
         [self.delegate reportContainerDidFinish:self];
-     }];
+    }];
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    CGFloat width = self.view.bounds.size.width;
+    CGFloat width = LUIFooterWidth;
     CGFloat height = LUIFooterHeight;
     self.navController.view.bounds = CGRectMake(0, 0, width, height);
-    self.navController.view.center = CGPointMake(width / 2, self.view.bounds.size.height - height / 2);
+    self.navController.view.center = CGPointMake(self.view.bounds.size.width / 2 + self.transformX, self.view.bounds.size.height - height / 2 + self.transformY);
     self.navController.delegate = self;
     
     self.overlayContainer.frame = self.view.bounds;
@@ -84,7 +93,7 @@ static const CGFloat LUIFooterHeight = 220;
 
 - (void)highlightViewsOfReport:(id<LUIReport>)report {
     self.highlightController = [[LUIViewHighlightController alloc] init];
-    [self.highlightController highlightViews:[[report views] allValues] inContainer:self.overlayContainer];
+    [self.highlightController highlightViews:report.views inContainer:self.overlayContainer];
 }
 
 - (void)reportListController:(LUIReportListViewController *)controller choseReport:(id<LUIReport>)report {
@@ -121,6 +130,26 @@ static const CGFloat LUIFooterHeight = 220;
     NSString* text = [report message];
     UIActivityViewController* activityController = [[UIActivityViewController alloc] initWithActivityItems:@[image, text] applicationActivities:@[]];
     [self presentViewController:activityController animated:YES completion:nil];
+}
+
+- (void)titleBarDrag:(UIPanGestureRecognizer*)pan {
+    switch(pan.state) {
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+        case UIGestureRecognizerStateEnded: {
+            CGPoint delta = [pan translationInView:self.view];
+            self.transformX = self.transformX + delta.x;
+            self.transformY = self.transformY + delta.y;
+            [pan setTranslation:CGPointZero inView:self.view];
+            
+            CGPoint oldCenter = self.navController.view.center;
+            CGPoint newCenter = CGPointMake(oldCenter.x + delta.x, oldCenter.y + delta.y);
+            self.navController.view.center = newCenter;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

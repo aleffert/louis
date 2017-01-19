@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LUIViewRecord;
+
 @protocol LUIReport <NSObject>
 
 /// Return all reports for this view.
@@ -27,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly, copy, nonatomic) NSString* message;
 
 /// A set of relevant views and user facing string describing each view's rule in the report
-@property (readonly, copy, nonatomic) NSDictionary<NSString*, UIView*>* views;
+@property (readonly, copy, nonatomic) NSArray<LUIViewRecord*>* views;
 
 @end
 
