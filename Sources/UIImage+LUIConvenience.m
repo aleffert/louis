@@ -54,3 +54,21 @@ done:
 }
 
 @end
+
+UIImage* LUICaptureImage(CGSize size, BOOL opaque, CGFloat scale, void(^actions)(void)) {
+    if([UIGraphicsImageRenderer class] != nil) {
+        UIGraphicsImageRendererFormat* format = [[UIGraphicsImageRendererFormat alloc] init];
+        format.scale = scale;
+        format.opaque = opaque;
+        return [[[UIGraphicsImageRenderer alloc] initWithSize:size format:format] imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+            actions();
+        }];
+    }
+    else {
+        UIGraphicsBeginImageContextWithOptions(size, opaque, scale);
+        actions();
+        UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
+}

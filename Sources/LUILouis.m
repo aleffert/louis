@@ -14,6 +14,7 @@
 #import "LUIInsufficientContrastReport.h"
 #import "LUILogger.h"
 #import "LUIReport.h"
+#import "LUIVisualLogger.h"
 
 #import <objc/runtime.h>
 
@@ -48,7 +49,10 @@ static NSTimeInterval LUIDefaultTimedCheckInterval = 3;
     self = [super init];
     if(self != nil) {
         self.timedCheckInterval = LUIDefaultTimedCheckInterval;
-        self.loggers = @[[[LUIConsoleLogger alloc] init]];
+        self.loggers = @[
+                         [[LUIConsoleLogger alloc] init],
+                         [[LUIVisualLogger alloc] init]
+                         ];
     }
     return self;
 }
@@ -80,10 +84,8 @@ static NSTimeInterval LUIDefaultTimedCheckInterval = 3;
 
 - (void)reportView:(UIView*)view {
     NSArray<id<LUIReport>>* reports = [view lui_accessibilityReports];
-    if(reports.count > 0) {
-        for(id<LUILogger> logger in self.loggers) {
-            [logger logReports:reports];
-        }
+    for(id<LUILogger> logger in self.loggers) {
+        [logger logReports:reports];
     }
 }
 

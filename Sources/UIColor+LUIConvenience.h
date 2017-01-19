@@ -12,4 +12,6 @@
 
 - (BOOL)lui_isOpaque;
 
+- (UIImage*)lui_swatchOfSize:(CGSize)size;
+
 @end

@@ -214,8 +214,15 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
 
 // LUIReport
 
+- (NSString*)category {
+    return NSLocalizedString(
+                             @"Insufficient Contrast",
+                             @"Description of error category"
+                             );
+}
+
 - (NSString*)message {
-    return [NSString stringWithFormat: @"View %@ has insufficient contrast with its background view: %@", self.view, self.backgroundView];
+    return NSLocalizedString(@"Foreground has insufficient contrast with its background.", "Error description");
 }
 
 + (NSString*)identifier {

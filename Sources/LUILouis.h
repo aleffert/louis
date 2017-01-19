@@ -22,8 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// Constructs a new accessibility checker. Note that for convenience you can access Louis through its shared singleton.
 - (id)init;
 
+/// Adds a logger
+/// @param logger The logger to add.
 - (void)addLogger:(id <LUILogger>)logger;
-- (void)removeLogger:(id <LUILogger>)logger;
+
+/// Removes a logger
+/// @param logger The logger to remove.
+- (void)removeLogger:(NSString*)identifier;
+
+/// All current loggers
 @property (copy, nonatomic) NSArray<id<LUILogger>>* loggers;
 
 /// Interval between traversals of the view hierarchy when @p timedCheckEnabled is @p YES. Defaults to 3 seconds.

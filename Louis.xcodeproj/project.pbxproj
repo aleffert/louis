@@ -12,6 +12,8 @@
 		771F6B551C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */; };
 		771F6B5A1C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */; };
 		771F6B5E1C84F8E4006E4A1C /* LUIReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */; };
+		77515F811E305BA4000BF481 /* LUIViewHighlightController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77515F7F1E305BA4000BF481 /* LUIViewHighlightController.h */; };
+		77515F821E305BA4000BF481 /* LUIViewHighlightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77515F801E305BA4000BF481 /* LUIViewHighlightController.m */; };
 		7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */; };
 		775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */; };
 		77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 77831A1A1C85EACB0013C18A /* LUIReport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +35,16 @@
 		779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		779DA4F71E118CC300BBDC8A /* LUIAssertionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */; };
 		779DA5001E11AE3E00BBDC8A /* LUILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA4ED1E11895100BBDC8A /* LUILogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		779DA5071E11BBC200BBDC8A /* LUIVisualLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA5051E11BBC200BBDC8A /* LUIVisualLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		779DA5081E11BBC200BBDC8A /* LUIVisualLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA5061E11BBC200BBDC8A /* LUIVisualLogger.m */; };
+		779DA50F1E11F63D00BBDC8A /* LUIOverlayMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA50D1E11F63D00BBDC8A /* LUIOverlayMessageView.h */; };
+		779DA5101E11F63D00BBDC8A /* LUIOverlayMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA50E1E11F63D00BBDC8A /* LUIOverlayMessageView.m */; };
+		779DA5141E12005C00BBDC8A /* LUIReportListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA5121E12005C00BBDC8A /* LUIReportListViewController.h */; };
+		779DA5151E12005C00BBDC8A /* LUIReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA5131E12005C00BBDC8A /* LUIReportListViewController.m */; };
+		779DA5181E121C5100BBDC8A /* LUIReportContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA5161E121C5100BBDC8A /* LUIReportContainerViewController.h */; };
+		779DA5191E121C5100BBDC8A /* LUIReportContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA5171E121C5100BBDC8A /* LUIReportContainerViewController.m */; };
+		779DA51C1E12294700BBDC8A /* LUIReportViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 779DA51A1E12294700BBDC8A /* LUIReportViewController.h */; };
+		779DA51D1E12294700BBDC8A /* LUIReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779DA51B1E12294700BBDC8A /* LUIReportViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +66,8 @@
 		771F6B541C84D87F006E4A1C /* LUIButtonMissingLabelReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIButtonMissingLabelReportTests.swift; sourceTree = "<group>"; };
 		771F6B591C84E34E006E4A1C /* LUIBadLabelFormatReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIBadLabelFormatReportTests.swift; sourceTree = "<group>"; };
 		771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LUIReportTests.swift; sourceTree = "<group>"; };
+		77515F7F1E305BA4000BF481 /* LUIViewHighlightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIViewHighlightController.h; path = Sources/LUIViewHighlightController.h; sourceTree = "<group>"; };
+		77515F801E305BA4000BF481 /* LUIViewHighlightController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIViewHighlightController.m; path = Sources/LUIViewHighlightController.m; sourceTree = "<group>"; };
 		7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+LUIVisibility.h"; path = "Sources/UIView+LUIVisibility.h"; sourceTree = "<group>"; };
 		7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+LUIVisibility.m"; path = "Sources/UIView+LUIVisibility.m"; sourceTree = "<group>"; };
 		77831A1A1C85EACB0013C18A /* LUIReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReport.h; path = Sources/LUIReport.h; sourceTree = "<group>"; };
@@ -75,6 +89,16 @@
 		779DA4F11E118C5900BBDC8A /* LUIConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIConsoleLogger.m; path = Sources/LUIConsoleLogger.m; sourceTree = "<group>"; };
 		779DA4F41E118CC300BBDC8A /* LUIAssertionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIAssertionLogger.h; path = Sources/LUIAssertionLogger.h; sourceTree = "<group>"; };
 		779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIAssertionLogger.m; path = Sources/LUIAssertionLogger.m; sourceTree = "<group>"; };
+		779DA5051E11BBC200BBDC8A /* LUIVisualLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIVisualLogger.h; path = Sources/LUIVisualLogger.h; sourceTree = "<group>"; };
+		779DA5061E11BBC200BBDC8A /* LUIVisualLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIVisualLogger.m; path = Sources/LUIVisualLogger.m; sourceTree = "<group>"; };
+		779DA50D1E11F63D00BBDC8A /* LUIOverlayMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIOverlayMessageView.h; path = Sources/LUIOverlayMessageView.h; sourceTree = "<group>"; };
+		779DA50E1E11F63D00BBDC8A /* LUIOverlayMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIOverlayMessageView.m; path = Sources/LUIOverlayMessageView.m; sourceTree = "<group>"; };
+		779DA5121E12005C00BBDC8A /* LUIReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReportListViewController.h; path = Sources/LUIReportListViewController.h; sourceTree = "<group>"; };
+		779DA5131E12005C00BBDC8A /* LUIReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIReportListViewController.m; path = Sources/LUIReportListViewController.m; sourceTree = "<group>"; };
+		779DA5161E121C5100BBDC8A /* LUIReportContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReportContainerViewController.h; path = Sources/LUIReportContainerViewController.h; sourceTree = "<group>"; };
+		779DA5171E121C5100BBDC8A /* LUIReportContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIReportContainerViewController.m; path = Sources/LUIReportContainerViewController.m; sourceTree = "<group>"; };
+		779DA51A1E12294700BBDC8A /* LUIReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUIReportViewController.h; path = Sources/LUIReportViewController.h; sourceTree = "<group>"; };
+		779DA51B1E12294700BBDC8A /* LUIReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUIReportViewController.m; path = Sources/LUIReportViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +155,9 @@
 				77831A1F1C85EB970013C18A /* LUILouis.m */,
 				7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */,
 				7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */,
-				779DA4E51E0EE63D00BBDC8A /* UIImage+LUIConvenience.h */,
 				779DA4E91E0F07B500BBDC8A /* UIColor+LUIConvenience.h */,
 				779DA4EA1E0F07B500BBDC8A /* UIColor+LUIConvenience.m */,
+				779DA4E51E0EE63D00BBDC8A /* UIImage+LUIConvenience.h */,
 				779DA4E61E0EE63D00BBDC8A /* UIImage+LUIConvenience.m */,
 				779DA4EF1E11895F00BBDC8A /* Loggers */,
 				771F6B411C84D5B5006E4A1C /* Reporters */,
@@ -184,8 +208,28 @@
 				779DA4F51E118CC300BBDC8A /* LUIAssertionLogger.m */,
 				779DA4F01E118C5900BBDC8A /* LUIConsoleLogger.h */,
 				779DA4F11E118C5900BBDC8A /* LUIConsoleLogger.m */,
+				779DA5111E11F71900BBDC8A /* Visual Logger */,
 			);
 			name = Loggers;
+			sourceTree = "<group>";
+		};
+		779DA5111E11F71900BBDC8A /* Visual Logger */ = {
+			isa = PBXGroup;
+			children = (
+				77515F7F1E305BA4000BF481 /* LUIViewHighlightController.h */,
+				77515F801E305BA4000BF481 /* LUIViewHighlightController.m */,
+				779DA51A1E12294700BBDC8A /* LUIReportViewController.h */,
+				779DA51B1E12294700BBDC8A /* LUIReportViewController.m */,
+				779DA5121E12005C00BBDC8A /* LUIReportListViewController.h */,
+				779DA5131E12005C00BBDC8A /* LUIReportListViewController.m */,
+				779DA5161E121C5100BBDC8A /* LUIReportContainerViewController.h */,
+				779DA5171E121C5100BBDC8A /* LUIReportContainerViewController.m */,
+				779DA50D1E11F63D00BBDC8A /* LUIOverlayMessageView.h */,
+				779DA50E1E11F63D00BBDC8A /* LUIOverlayMessageView.m */,
+				779DA5051E11BBC200BBDC8A /* LUIVisualLogger.h */,
+				779DA5061E11BBC200BBDC8A /* LUIVisualLogger.m */,
+			);
+			name = "Visual Logger";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +239,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779DA5181E121C5100BBDC8A /* LUIReportContainerViewController.h in Headers */,
 				779DA4F21E118C5900BBDC8A /* LUIConsoleLogger.h in Headers */,
 				77831A2C1C8602480013C18A /* LUIInsufficientContrastReport.h in Headers */,
 				779DA4E71E0EE63D00BBDC8A /* UIImage+LUIConvenience.h in Headers */,
+				779DA5071E11BBC200BBDC8A /* LUIVisualLogger.h in Headers */,
 				779DA5001E11AE3E00BBDC8A /* LUILogger.h in Headers */,
 				779DA4EB1E0F07B500BBDC8A /* UIColor+LUIConvenience.h in Headers */,
 				779DA4F61E118CC300BBDC8A /* LUIAssertionLogger.h in Headers */,
@@ -205,8 +251,12 @@
 				77831A281C85FD450013C18A /* LUIBadLabelFormatReport.h in Headers */,
 				77831A1C1C85EACB0013C18A /* LUIReport.h in Headers */,
 				771F6B3E1C84D59B006E4A1C /* Louis.h in Headers */,
+				779DA5141E12005C00BBDC8A /* LUIReportListViewController.h in Headers */,
+				779DA50F1E11F63D00BBDC8A /* LUIOverlayMessageView.h in Headers */,
 				77831A241C85F7EE0013C18A /* LUIButtonMissingLabelReport.h in Headers */,
+				779DA51C1E12294700BBDC8A /* LUIReportViewController.h in Headers */,
 				7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */,
+				77515F811E305BA4000BF481 /* LUIViewHighlightController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,15 +358,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779DA5101E11F63D00BBDC8A /* LUIOverlayMessageView.m in Sources */,
 				77831A211C85EB970013C18A /* LUILouis.m in Sources */,
 				779DA4E81E0EE63D00BBDC8A /* UIImage+LUIConvenience.m in Sources */,
+				77515F821E305BA4000BF481 /* LUIViewHighlightController.m in Sources */,
+				779DA5081E11BBC200BBDC8A /* LUIVisualLogger.m in Sources */,
 				779DA4F31E118C5900BBDC8A /* LUIConsoleLogger.m in Sources */,
 				779DA4EC1E0F07B500BBDC8A /* UIColor+LUIConvenience.m in Sources */,
 				77831A291C85FD450013C18A /* LUIBadLabelFormatReport.m in Sources */,
 				779DA4F71E118CC300BBDC8A /* LUIAssertionLogger.m in Sources */,
 				77831A251C85F7EE0013C18A /* LUIButtonMissingLabelReport.m in Sources */,
 				77831A2D1C8602480013C18A /* LUIInsufficientContrastReport.m in Sources */,
+				779DA5191E121C5100BBDC8A /* LUIReportContainerViewController.m in Sources */,
 				775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */,
+				779DA5151E12005C00BBDC8A /* LUIReportListViewController.m in Sources */,
+				779DA51D1E12294700BBDC8A /* LUIReportViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

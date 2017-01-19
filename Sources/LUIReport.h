@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// specific views
 + (NSString*)identifier;
 
+/// A user facing string indicating the kind of report
+@property (readonly, copy, nonnull) NSString* category;
+
 /// A user facing string describing the error
 @property (readonly, copy, nonatomic) NSString* message;
 

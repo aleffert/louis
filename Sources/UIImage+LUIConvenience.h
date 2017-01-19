@@ -22,3 +22,5 @@ typedef struct
 - (BOOL)lui_isOpaque;
 
 @end
+
+UIImage* LUICaptureImage(CGSize size, BOOL opaque, CGFloat scale, void(^actions)(void));

@@ -33,8 +33,17 @@ BOOL LUIIsBadName(NSString* name) {
     return @"bad-label-format";
 }
 
+- (NSString *)category {
+    return NSLocalizedString(
+                             @"Bad Accessibility Label",
+                             @"Description of error category"
+                             );
+}
+
 - (NSString*)message {
-    return [NSString stringWithFormat: @"View %@ has a bad name: %@.", self.view, self.label];
+    return [NSString stringWithFormat:
+            NSLocalizedString(@"View %@ has a bad name: %@.", @"Error description"),
+            self.view, self.label];
 
 }
 

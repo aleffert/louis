@@ -38,8 +38,17 @@ NSString* LUIStringForControlState(UIControlState state) {
     return self;
 }
 
+- (NSString*)category {
+    return NSLocalizedString(
+                             @"Button Missing Accessibility Label",
+                             @"Description of error category"
+                             );
+}
+
 - (NSString*)message {
-    return [NSString stringWithFormat:@"Button %@ missing label for states: %@", self.button, self.invalidStates];
+    return [NSString stringWithFormat:
+            NSLocalizedString(@"Button %@ missing label for states: %@", @"Error description"),
+            self.button, self.invalidStates];
 }
 
 - (UIView*)view {
