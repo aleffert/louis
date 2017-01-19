@@ -127,6 +127,7 @@ typedef NS_ENUM(NSUInteger, LUIReportViewSection) {
     
     UIView* view = record.view;
     UIColor* color = [self.delegate reportViewController:self highlighColorView:view];
+    cell.imageView.isAccessibilityElement = NO;
     [cell.imageView setImage:[color lui_swatchOfSize:[self swatchSize]]];
     cell.imageView.clipsToBounds = YES;
     cell.imageView.layer.cornerRadius = LUISwatchCornerRadius;

@@ -59,9 +59,9 @@ static const CGFloat LUIFooterWidth = 300;
 
 - (void)present {
     self.navController.view.transform = CGAffineTransformMakeScale(0.3, 0.3);
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
         self.navController.view.transform = CGAffineTransformIdentity;
-    }];
+    } completion:nil];
     self.navController.view.layer.shadowOpacity = 0.4;
     self.navController.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, LUIFooterWidth, LUIFooterHeight)].CGPath;
     self.navController.view.layer.shadowOffset = CGSizeMake(0, 3);
