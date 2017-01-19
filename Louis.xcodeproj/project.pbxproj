@@ -14,7 +14,7 @@
 		771F6B5E1C84F8E4006E4A1C /* LUIReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771F6B5D1C84F8E4006E4A1C /* LUIReportTests.swift */; };
 		77515F811E305BA4000BF481 /* LUIViewHighlightController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77515F7F1E305BA4000BF481 /* LUIViewHighlightController.h */; };
 		77515F821E305BA4000BF481 /* LUIViewHighlightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77515F801E305BA4000BF481 /* LUIViewHighlightController.m */; };
-		77515F851E310B04000BF481 /* LUIViewRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 77515F831E310B04000BF481 /* LUIViewRecord.h */; };
+		77515F851E310B04000BF481 /* LUIViewRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 77515F831E310B04000BF481 /* LUIViewRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77515F861E310B04000BF481 /* LUIViewRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 77515F841E310B04000BF481 /* LUIViewRecord.m */; };
 		7753917F1C9B4E1800FA959C /* UIView+LUIVisibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7753917D1C9B4E1800FA959C /* UIView+LUIVisibility.h */; };
 		775391801C9B4E1800FA959C /* UIView+LUIVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7753917E1C9B4E1800FA959C /* UIView+LUIVisibility.m */; };

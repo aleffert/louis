@@ -25,7 +25,7 @@ class BadLabelFormatReportTests: XCTestCase {
         let reports = LUIBadLabelFormatReport.reports(label)
         XCTAssertEqual(reports.count, 1)
         let report = reports.first as! LUIBadLabelFormatReport
-        XCTAssertTrue(report.views.values.contains(label))
+        XCTAssertTrue(report.views.map { $0.view }.contains(label))
     }
 
 }
