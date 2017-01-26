@@ -38,6 +38,22 @@ CGFloat LUILuminanceForColor(UIColor* color) {
     return LUILuminanceForPixel(pixel);
 }
 
+NSArray<NSNumber*>* LUILuminanceList(NSNumber* first, ...) {
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    va_list items;
+    va_start(items, first);
+    
+    NSNumber* current = first;
+    
+    do {
+        if(current.floatValue >= 0 && current.floatValue <= 1) {
+            [result addObject:current];
+        }
+    } while((current = va_arg(items, NSNumber*)) != nil);
+    va_end(items);
+    return result;
+}
+
 LuminanceRange LUILuminanceForImage(UIImage* image) {
     CGImageRef imageRep = image.CGImage;
     // Downsize - we don't really need the full image granularity
@@ -50,8 +66,8 @@ LuminanceRange LUILuminanceForImage(UIImage* image) {
     CGContextDrawImage(bmContext, (CGRect){.origin.x = 0.0f, .origin.y = 0.0f, .size.width = width, .size.height = height}, image.CGImage);
     CGColorSpaceRelease(cs);
 
-    CGFloat min = 1;
-    CGFloat max = 0;
+    CGFloat min = CGFLOAT_MAX;
+    CGFloat max = -CGFLOAT_MAX;
     
     const RGBAPixel* pixels = (const RGBAPixel*)CGBitmapContextGetData(bmContext);
     for (NSUInteger y = 0; y < height; y++)
@@ -60,9 +76,10 @@ LuminanceRange LUILuminanceForImage(UIImage* image) {
         {
             const NSUInteger index = x + y * width;
             RGBAPixel pixel = pixels[index];
-
-            min = MIN(LUILuminanceForPixel(pixel), min);
-            max = MAX(LUILuminanceForPixel(pixel), max);
+            if(pixel.alpha > 0) {
+                min = MIN(LUILuminanceForPixel(pixel), min);
+                max = MAX(LUILuminanceForPixel(pixel), max);
+            }
         }
     }
     CGContextRelease(bmContext);
@@ -104,7 +121,7 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
             UIButton* containingButton = (UIButton*)label.superview;
             UIColor* titleColor = [containingButton titleColorForState:UIControlStateNormal];
             if(containingButton.titleLabel == view && titleColor && !label.attributedText) {
-                return @[@(LUILuminanceForColor(titleColor))];
+                return LUILuminanceList(@(LUILuminanceForColor(titleColor)), nil);
             }
         }
 
@@ -190,10 +207,10 @@ BOOL LUILuminanceLacksContrast(CGFloat foregroundLuminance, CGFloat backgroundLu
     NSArray<UIView*>* siblings = [[view superview] subviews];
     NSUInteger currentIndex = [siblings indexOfObject:view];
     NSMutableArray<UIView*>* result = [NSMutableArray array];
-    CGRect baseFrame = baseView.frame;
+    CGRect baseBounds = baseView.bounds;
     for(NSInteger i = 0; i < currentIndex; i++) {
         UIView* sibling = siblings[i];
-        CGRect convertedBounds = [baseView convertRect:baseFrame toView:sibling];
+        CGRect convertedBounds = [baseView convertRect:baseBounds toView:sibling];
         if(CGRectEqualToRect(CGRectIntersection(sibling.bounds, convertedBounds), convertedBounds)) {
             [result addObject:sibling];
         }

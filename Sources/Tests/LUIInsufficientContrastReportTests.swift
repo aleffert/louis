@@ -114,8 +114,8 @@ class LUIInsufficientContrastReportTests: XCTestCase {
         container.addSubview(label)
         
         // Ensure lower sibling geometry contains test view
-        sibling.frame = CGRect(x: 0, y:0, width: 100, height: 100)
-        label.frame = CGRect(x: 25, y: 25, width: 50, height: 50)
+        sibling.frame = CGRect(x: 24, y:6, width: 127, height: 26.5)
+        label.frame = CGRect(x: 30, y: 12, width: 115, height: 14.5)
         
         XCTAssertEqual(LUIInsufficientContrastReport.reports(label).count, 1)
         
@@ -185,7 +185,7 @@ class LUIInsufficientContrastReportTests: XCTestCase {
         
         bar.layoutIfNeeded()
         
-        XCTAssertEqual(bar.subviews[1].subviews[0].lui_accessibilityReportsRecursive(true, reporters: [LUIInsufficientContrastReport.self]).count, 0);
+        XCTAssertEqual(bar.subviews[1].subviews[0].lui_accessibility_reports(recursive: true, reporters: [LUIInsufficientContrastReport.self]).count, 0);
     }
     
     func testButtonBackgroundNotIgnoredWhenBackgroundImageNotOpaque() {
